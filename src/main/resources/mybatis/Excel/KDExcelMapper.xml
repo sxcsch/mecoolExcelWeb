@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="KDExcelMapper">
+
+  <select id="getSellinExecdateList" parameterType="pd" resultType="pd">
+      SELECT
+        ID,
+        PROJECT_SELLIN_INFO_ID,
+        HEADER_ID,
+        EXEC_DATE
+      FROM
+        DM_PROJECT_SELLIN_EXECDATE
+      WHERE
+        PROJECT_SELLIN_INFO_ID = #{ID}
+
+    </select>
+
+  <insert id="savePriectSellinStoreOpen" parameterType="pd">
+      <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+        select HIBERNATE_SEQUENCE.nextval as ID from dual
+      </selectKey>
+      insert into DM_PROJECT_SELLIN_STORE_OPEN
+      <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="ID != null" >
+          ID,
+        </if>
+        <if test="PROJECT_SELLIN_INFO_ID != null" >
+          PROJECT_SELLIN_INFO_ID,
+        </if>
+        <if test="SO_UPDATE_USER != null" >
+          SO_UPDATE_USER,
+        </if>
+        <if test="SO_UPDATE_TIME != null" >
+          SO_UPDATE_TIME,
+        </if>
+        <if test="SO_CREATE_USER != null" >
+          SO_CREATE_USER,
+        </if>
+        <if test="SO_CREATE_TIME != null" >
+          SO_CREATE_TIME,
+        </if>
+        <if test="SO_STATUS != null" >
+          SO_STATUS,
+        </if>
+        <if test="SO_PLAN_OPEN_TIME != null" >
+          SO_PLAN_OPEN_TIME,
+        </if>
+        <if test="SO_PLAN_FINISH_TIME != null" >
+          SO_PLAN_FINISH_TIME,
+        </if>
+        <if test="SO_OPEN_TIME != null" >
+          SO_OPEN_TIME,
+        </if>
+        <if test="SO_OPEN_TYPE != null" >
+          SO_OPEN_TYPE,
+        </if>
+        <if test="SO_EXHIBIT_TYPE != null" >
+          SO_EXHIBIT_TYPE,
+        </if>
+        <if test="SO_ENTER_TIME != null" >
+          SO_ENTER_TIME,
+        </if>
+        <if test="SO_LEAVE_TIME != null" >
+          SO_LEAVE_TIME,
+        </if>
+        <if test="SO_PATROL_TIME != null" >
+          SO_PATROL_TIME,
+        </if>
+        <if test="SO_PATROL_POSITION_STATUS != null" >
+          SO_PATROL_POSITION_STATUS,
+        </if>
+        <if test="SO_EXHIBIT_PHOTOS != null" >
+          SO_EXHIBIT_PHOTOS,
+        </if>
+        <if test="SO_SALES_PHOTOS != null" >
+          SO_SALES_PHOTOS,
+        </if>
+        <if test="SO_EXEC_EMP_CODE != null" >
+          SO_EXEC_EMP_CODE,
+        </if>
+        <if test="SO_SPECIAL_SITUATION != null" >
+          SO_SPECIAL_SITUATION,
+        </if>
+        <if test="SO_UPLOAD_TIME != null" >
+          SO_UPLOAD_TIME,
+        </if>
+        <if test="So1 != null" >
+          SO1,
+        </if>
+        <if test="So2 != null" >
+          SO2,
+        </if>
+        <if test="So3 != null" >
+          SO3,
+        </if>
+        <if test="So4 != null" >
+          SO4,
+        </if>
+        <if test="So5 != null" >
+          SO5,
+        </if>
+        <if test="So6 != null" >
+          SO6,
+        </if>
+        <if test="So7 != null" >
+          SO7,
+        </if>
+        <if test="So8 != null" >
+          SO8,
+        </if>
+        <if test="So9 != null" >
+          SO9,
+        </if>
+        <if test="So10 != null" >
+          SO10,
+        </if>
+        <if test="SO_REPORT_TYPE != null" >
+          SO_REPORT_TYPE,
+        </if>
+        <if test="SO_REPORT_USER != null" >
+          SO_REPORT_USER,
+        </if>
+        <if test="AUDI_STATUS != null" >
+          AUDI_STATUS,
+        </if>
+        <if test="AUDI_OPINION != null" >
+          AUDI_OPINION,
+        </if>
+        <if test="AUDI_USER != null" >
+          AUDI_USER,
+        </if>
+        <if test="AUDI_TIME != null" >
+          AUDI_TIME,
+        </if>
+        <if test="SO_SALES_EXHIBIT_TYPE != null" >
+          SO_SALES_EXHIBIT_TYPE,
+        </if>
+        <if test="SO_SALES_EXHIBIT_PHOTOS != null" >
+          SO_SALES_EXHIBIT_PHOTOS,
+        </if>
+        <if test="SO_SALES_OPEN_PHOTOS != null" >
+          SO_SALES_OPEN_PHOTOS,
+        </if>
+        <if test="SO_SALES_ACTION_PHOTOS != null" >
+          SO_SALES_ACTION_PHOTOS,
+        </if>
+        <if test="SO_SALES_COMPET_PHOTOS != null" >
+          SO_SALES_COMPET_PHOTOS,
+        </if>
+        <if test="SO_SALES_OPEN_CODE != null" >
+          SO_SALES_OPEN_CODE,
+        </if>
+        <if test="SO_SALES_REPORT_TIME != null" >
+          SO_SALES_REPORT_TIME,
+        </if>
+        <if test="SO_SALES_QUESTION_FEEDBACK != null" >
+          SO_SALES_QUESTION_FEEDBACK,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <if test="ID != null" >
+          #{ID,jdbcType=DECIMAL},
+        </if>
+        <if test="PROJECT_SELLIN_INFO_ID != null" >
+          #{PROJECT_SELLIN_INFO_ID,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_UPDATE_USER != null" >
+          #{SO_UPDATE_USER,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_UPDATE_TIME != null" >
+          #{SO_UPDATE_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_CREATE_USER != null" >
+          #{SO_CREATE_USER,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_CREATE_TIME != null" >
+          #{SO_CREATE_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_STATUS != null" >
+          #{SO_STATUS,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_PLAN_OPEN_TIME != null" >
+          #{SO_PLAN_OPEN_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_PLAN_FINISH_TIME != null" >
+          #{SO_PLAN_FINISH_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_OPEN_TIME != null" >
+          #{SO_OPEN_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_OPEN_TYPE != null" >
+          #{SO_OPEN_TYPE,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_EXHIBIT_TYPE != null" >
+          #{SO_EXHIBIT_TYPE,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_ENTER_TIME != null" >
+          #{SO_ENTER_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_LEAVE_TIME != null" >
+          #{SO_LEAVE_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_PATROL_TIME != null" >
+          #{SO_PATROL_TIME,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_PATROL_POSITION_STATUS != null" >
+          #{SO_PATROL_POSITION_STATUS,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_EXHIBIT_PHOTOS != null" >
+          #{SO_EXHIBIT_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_PHOTOS != null" >
+          #{SO_SALES_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_EXEC_EMP_CODE != null" >
+          #{SO_EXEC_EMP_CODE,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SPECIAL_SITUATION != null" >
+          #{SO_SPECIAL_SITUATION,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_UPLOAD_TIME != null" >
+          #{SO_UPLOAD_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="So1 != null" >
+          #{So1,jdbcType=VARCHAR},
+        </if>
+        <if test="So2 != null" >
+          #{So2,jdbcType=VARCHAR},
+        </if>
+        <if test="So3 != null" >
+          #{So3,jdbcType=VARCHAR},
+        </if>
+        <if test="So4 != null" >
+          #{So4,jdbcType=VARCHAR},
+        </if>
+        <if test="So5 != null" >
+          #{So5,jdbcType=VARCHAR},
+        </if>
+        <if test="So6 != null" >
+          #{So6,jdbcType=VARCHAR},
+        </if>
+        <if test="So7 != null" >
+          #{So7,jdbcType=VARCHAR},
+        </if>
+        <if test="So8 != null" >
+          #{So8,jdbcType=VARCHAR},
+        </if>
+        <if test="So9 != null" >
+          #{So9,jdbcType=VARCHAR},
+        </if>
+        <if test="So10 != null" >
+          #{So10,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_REPORT_TYPE != null" >
+          #{SO_REPORT_TYPE,jdbcType=DECIMAL},
+        </if>
+        <if test="SO_REPORT_USER != null" >
+          #{SO_REPORT_USER,jdbcType=DECIMAL},
+        </if>
+        <if test="AUDI_STATUS != null" >
+          #{AUDI_STATUS,jdbcType=DECIMAL},
+        </if>
+        <if test="AUDI_OPINION != null" >
+          #{AUDI_OPINION,jdbcType=VARCHAR},
+        </if>
+        <if test="AUDI_USER != null" >
+          #{AUDI_USER,jdbcType=DECIMAL},
+        </if>
+        <if test="AUDI_TIME != null" >
+          #{AUDI_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_SALES_EXHIBIT_TYPE != null" >
+          #{SO_SALES_EXHIBIT_TYPE,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_EXHIBIT_PHOTOS != null" >
+          #{SO_SALES_EXHIBIT_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_OPEN_PHOTOS != null" >
+          #{SO_SALES_OPEN_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_ACTION_PHOTOS != null" >
+          #{SO_SALES_ACTION_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_COMPET_PHOTOS != null" >
+          #{SO_SALES_COMPET_PHOTOS,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_OPEN_CODE != null" >
+          #{SO_SALES_OPEN_CODE,jdbcType=VARCHAR},
+        </if>
+        <if test="SO_SALES_REPORT_TIME != null" >
+          #{SO_SALES_REPORT_TIME,jdbcType=TIMESTAMP},
+        </if>
+        <if test="SO_SALES_QUESTION_FEEDBACK != null" >
+          #{SO_SALES_QUESTION_FEEDBACK,jdbcType=VARCHAR},
+        </if>
+      </trim>
+  </insert>
+
+  <insert id="savePrjectSellinHisDetail" parameterType="pd" >
+    <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+      select HIBERNATE_SEQUENCE.nextval as ID from dual
+    </selectKey>
+    insert into DM_PROJECT_SELLIN_HIS_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        ID,
+      </if>
+      <if test="PROJECT_SELLIN_INFO_ID != null" >
+        PROJECT_SELLIN_INFO_ID,
+      </if>
+      <if test="UPDATE_USER != null" >
+        UPDATE_USER,
+      </if>
+      <if test="CREATE_TIME != null" >
+        CREATE_TIME,
+      </if>
+      <if test="REMARKS != null" >
+        REMARKS,
+      </if>
+      <if test="OPTION_FLAG != null" >
+        OPTION_FLAG,
+      </if>
+      <if test="SELLIN_INFO != null" >
+        SELLIN_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        #{ID,jdbcType=DECIMAL},
+      </if>
+      <if test="PROJECT_SELLIN_INFO_ID != null" >
+        #{PROJECT_SELLIN_INFO_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATE_USER != null" >
+        #{UPDATE_USER,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TIME != null" >
+        #{CREATE_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="REMARKS != null" >
+        #{REMARKS,jdbcType=VARCHAR},
+      </if>
+      <if test="OPTION_FLAG != null" >
+        #{OPTION_FLAG,jdbcType=DECIMAL},
+      </if>
+      <if test="SELLIN_INFO != null" >
+        #{SELLIN_INFO,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+
+
+</mapper>

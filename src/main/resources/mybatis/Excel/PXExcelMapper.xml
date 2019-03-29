@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PXExcelMapper">
+
+    <select id="findByProjectSalessCardIdTrainingDate" parameterType="pd" resultType="pd">
+       SELECT
+          ID,
+          PROJECT_ID,
+          SALES_CARD_ID,
+          TRAINING_SCORE,
+          SERVICE_FLOW,
+          PRODUCT_KNOWLEDGE,
+          POLICY_SYSTEM,
+          COURSEWARE,
+          TRAINING_DATE,
+          UPDATE_USER,
+          UPDATE_TIME,
+          CREATE_USER,
+          CREATE_TIME
+        FROM
+          DM_TRAINING_ASSESSMENT
+        where
+          PROJECT_ID = #{PROJECT_ID}
+        and
+          SALES_CARD_ID = #{SALES_CARD_ID}
+        and
+          TRAINING_DATE = #{TRAINING_DATE}
+    </select>
+
+    <insert id="saveProjectSalessCard" parameterType="pd">
+        <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+            select HIBERNATE_SEQUENCE.nextval as ID from dual
+        </selectKey>
+        INSERT INTO
+          DM_TRAINING_ASSESSMENT
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                ID,
+            </if>
+            <if test="PROJECT_ID != null" >
+                PROJECT_ID,
+            </if>
+            <if test="SALES_CARD_ID != null" >
+                SALES_CARD_ID,
+            </if>
+            <if test="TRAINING_SCORE != null" >
+                TRAINING_SCORE,
+            </if>
+            <if test="SERVICE_FLOW != null" >
+                SERVICE_FLOW,
+            </if>
+            <if test="PRODUCT_KNOWLEDGE != null" >
+                PRODUCT_KNOWLEDGE,
+            </if>
+            <if test="POLICY_SYSTEM != null" >
+                POLICY_SYSTEM,
+            </if>
+            <if test="COURSEWARE != null" >
+                COURSEWARE,
+            </if>
+            <if test="TRAINING_DATE != null" >
+                TRAINING_DATE,
+            </if>
+            <if test="UPDATE_USER != null" >
+                UPDATE_USER,
+            </if>
+            <if test="UPDATE_TIME != null" >
+                UPDATE_TIME,
+            </if>
+            <if test="CREATE_USER != null" >
+                CREATE_USER,
+            </if>
+            <if test="CREATE_TIME != null" >
+                CREATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                #{ID },
+            </if>
+            <if test="PROJECT_ID != null" >
+                #{PROJECT_ID },
+            </if>
+            <if test="SALES_CARD_ID != null" >
+                #{SALES_CARD_ID,jdbcType=VARCHAR},
+            </if>
+            <if test="TRAINING_SCORE != null" >
+                #{TRAINING_SCORE },
+            </if>
+            <if test="SERVICE_FLOW != null" >
+                #{SERVICE_FLOW,jdbcType=VARCHAR},
+            </if>
+            <if test="PRODUCT_KNOWLEDGE != null" >
+                #{PRODUCT_KNOWLEDGE,jdbcType=VARCHAR},
+            </if>
+            <if test="POLICY_SYSTEM != null" >
+                #{POLICY_SYSTEM,jdbcType=VARCHAR},
+            </if>
+            <if test="COURSEWARE != null" >
+                #{COURSEWARE,jdbcType=VARCHAR},
+            </if>
+            <if test="TRAINING_DATE != null" >
+                #{TRAINING_DATE,jdbcType=TIMESTAMP},
+            </if>
+            <if test="UPDATE_USER != null" >
+                #{UPDATE_USER },
+            </if>
+            <if test="UPDATE_TIME != null" >
+                #{UPDATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="CREATE_USER != null" >
+                #{CREATE_USER },
+            </if>
+            <if test="CREATE_TIME != null" >
+                #{CREATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="removeProjectSalessCard" parameterType="pd">
+      DELETE FROM
+        DM_TRAINING_ASSESSMENT
+      WHERE
+        ID = #{ID}
+    </delete>
+
+</mapper>

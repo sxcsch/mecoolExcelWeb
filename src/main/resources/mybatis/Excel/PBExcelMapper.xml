@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PBExcelMapper">
+
+    <select id="findSelectValueById" resultType="pd" parameterType="pd">
+        SELECT
+             ID,
+            NAME,
+            TYPE,
+            SORT
+          FROM
+            SELECT_VALUE
+          WHERE
+            ID = #{ID}
+
+    </select>
+
+    <select id="getSelectValueList" resultType="pd" parameterType="pd">
+        SELECT
+        ID,
+        NAME,
+        TYPE,
+        SORT
+        FROM
+        SELECT_VALUE
+        WHERE
+        TYPE = #{TYPE}
+
+    </select>
+
+    <select id="getSelectValueNameList" resultType="pd" parameterType="pd">
+        SELECT
+        ID,
+        NAME,
+        TYPE,
+        SORT
+        FROM
+        SELECT_VALUE
+        WHERE
+        NAME = #{NAME}
+
+    </select>
+
+    <select id="getScheduleWorkList" resultType="pd" parameterType="pd">
+        SELECT
+            d.ID ID,
+            d.PROJECT_ID PROJECT_ID,
+            d.SW_UPDATE_USER SW_UPDATE_USER,
+            d.SW_UPDATE_TIME SW_UPDATE_TIME,
+            d.SW_CREATE_USER SW_CREATE_USER,
+            d.SW_CREATE_TIME SW_CREATE_TIME,
+            d.SW_NAME SW_NAME,
+            d.SW_COLOR SW_COLOR,
+            d.SW_BEGIN_TIME SW_BEGIN_TIME,
+            d.SW_END_TIME SW_END_TIME,
+            d.SW_REST_BEGIN_TIME1 SW_REST_BEGIN_TIME1,
+            d.SW_REST_END_TIME1 SW_REST_END_TIME1,
+            d.SW_REST_BEGIN_TIME2 SW_REST_BEGIN_TIME2,
+            d.SW_REST_END_TIME2 SW_REST_END_TIME2,
+            d.SW_WORK_TYPE SW_WORK_TYPE,
+            d.CHANNEL_SYNC_ID CHANNEL_SYNC_ID,
+            sy.CHANNEL_CODE CHANNEL_CODE
+        FROM
+            DM_SALES_SCHEDULE_WORK d,DM_CHANNEL_SYNC sy
+        WHERE
+            PROJECT_ID = #{PROJECT_ID}
+        AND
+            d.CHANNEL_SYNC_ID =  sy.ID
+
+    </select>
+
+    <select id="findByProjectSellinInfoIdAndDeleteFlag" parameterType="pd" resultType="pd">
+        SELECT
+            ID,
+            PROJECT_SELLIN_INFO_ID,
+            SALES_CARD_ID,
+            SALES_NAME,
+            SALES_PHONE,
+            SALES_ADDRESS,
+            SALES_WORK_START,
+            SALES_WORK_END,
+            SALES_EAT_START,
+            SALES_EAT_END,
+            SALES_MEMO,
+            SALES_SCHEDULE_TYPE,
+            SALES_EAT_START2,
+            SALES_EAT_END2,
+            CREATE_TIME,
+            CREATE_USER,
+            UPDATE_TIME,
+            UPDATE_USER,
+            DELETE_FLAG,
+            SALES_SALARY_CARD,
+            SALES_BANK_CODE,
+            SALES_TYPE,
+            PRODUCT
+          FROM
+            DM_PROJECT_SELLIN_SALES
+          WHERE
+            DELETE_FLAG = #{DELETE_FLAG}
+          AND
+            PROJECT_SELLIN_INFO_ID = #{PROJECT_SELLIN_INFO_ID}
+
+    </select>
+
+    <insert id="saveSalesScheduleWork" parameterType="pd">
+        <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+            select HIBERNATE_SEQUENCE.nextval as ID from dual
+        </selectKey>
+        insert into DM_SALES_SCHEDULE_WORK
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                ID,
+            </if>
+            <if test="PROJECT_ID != null" >
+                PROJECT_ID,
+            </if>
+            <if test="SW_UPDATE_USER != null" >
+                SW_UPDATE_USER,
+            </if>
+            <if test="SW_UPDATE_TIME != null" >
+                SW_UPDATE_TIME,
+            </if>
+            <if test="SW_CREATE_USER != null" >
+                SW_CREATE_USER,
+            </if>
+            <if test="SW_CREATE_TIME != null" >
+                SW_CREATE_TIME,
+            </if>
+            <if test="SW_NAME != null" >
+                SW_NAME,
+            </if>
+            <if test="SW_COLOR != null" >
+                SW_COLOR,
+            </if>
+            <if test="SW_BEGIN_TIME != null" >
+                SW_BEGIN_TIME,
+            </if>
+            <if test="SW_END_TIME != null" >
+                SW_END_TIME,
+            </if>
+            <if test="SW_REST_BEGIN_TIME1 != null" >
+                SW_REST_BEGIN_TIME1,
+            </if>
+            <if test="SW_REST_END_TIME1 != null" >
+                SW_REST_END_TIME1,
+            </if>
+            <if test="SW_REST_BEGIN_TIME2 != null" >
+                SW_REST_BEGIN_TIME2,
+            </if>
+            <if test="SW_REST_END_TIME2 != null" >
+                SW_REST_END_TIME2,
+            </if>
+            <if test="SW_WORK_TYPE != null" >
+                SW_WORK_TYPE,
+            </if>
+            <if test="CHANNEL_SYNC_ID != null" >
+                CHANNEL_SYNC_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                #{ID,jdbcType=DECIMAL},
+            </if>
+            <if test="PROJECT_ID != null" >
+                #{PROJECT_ID,jdbcType=DECIMAL},
+            </if>
+            <if test="SW_UPDATE_USER != null" >
+                #{SW_UPDATE_USER,jdbcType=DECIMAL},
+            </if>
+            <if test="SW_UPDATE_TIME != null" >
+                #{SW_UPDATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="SW_CREATE_USER != null" >
+                #{SW_CREATE_USER,jdbcType=DECIMAL},
+            </if>
+            <if test="SW_CREATE_TIME != null" >
+                #{SW_CREATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="SW_NAME != null" >
+                #{SW_NAME,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_COLOR != null" >
+                #{SW_COLOR,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_BEGIN_TIME != null" >
+                #{SW_BEGIN_TIME,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_END_TIME != null" >
+                #{SW_END_TIME,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_REST_BEGIN_TIME1 != null" >
+                #{SW_REST_BEGIN_TIME1,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_REST_END_TIME1 != null" >
+                #{SW_REST_END_TIME1,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_REST_BEGIN_TIME2 != null" >
+                #{SW_REST_BEGIN_TIME2,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_REST_END_TIME2 != null" >
+                #{SW_REST_END_TIME2,jdbcType=VARCHAR},
+            </if>
+            <if test="SW_WORK_TYPE != null" >
+                #{SW_WORK_TYPE,jdbcType=DECIMAL},
+            </if>
+            <if test="CHANNEL_SYNC_ID != null" >
+                #{CHANNEL_SYNC_ID,jdbcType=DECIMAL},
+            </if>
+        </trim>
+
+    </insert>
+
+    <insert id="saveProjectSellinSales" parameterType="pd">
+        <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+            select HIBERNATE_SEQUENCE.nextval as ID from dual
+        </selectKey>
+        insert into DM_PROJECT_SELLIN_SALES
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                ID,
+            </if>
+            <if test="PROJECT_SELLIN_INFO_ID != null" >
+                PROJECT_SELLIN_INFO_ID,
+            </if>
+            <if test="SALES_CARD_ID != null" >
+                SALES_CARD_ID,
+            </if>
+            <if test="SALES_NAME != null" >
+                SALES_NAME,
+            </if>
+            <if test="SALES_PHONE != null" >
+                SALES_PHONE,
+            </if>
+            <if test="SALES_ADDRESS != null" >
+                SALES_ADDRESS,
+            </if>
+            <if test="SALES_WORK_START != null" >
+                SALES_WORK_START,
+            </if>
+            <if test="SALES_WORK_END != null" >
+                SALES_WORK_END,
+            </if>
+            <if test="SALES_EAT_START != null" >
+                SALES_EAT_START,
+            </if>
+            <if test="SALES_EAT_END != null" >
+                SALES_EAT_END,
+            </if>
+            <if test="SALES_MEMO != null" >
+                SALES_MEMO,
+            </if>
+            <if test="SALES_SCHEDULE_TYPE != null" >
+                SALES_SCHEDULE_TYPE,
+            </if>
+            <if test="SALES_EAT_START2 != null" >
+                SALES_EAT_START2,
+            </if>
+            <if test="SALES_EAT_END2 != null" >
+                SALES_EAT_END2,
+            </if>
+            <if test="CREATE_TIME != null" >
+                CREATE_TIME,
+            </if>
+            <if test="CREATE_USER != null" >
+                CREATE_USER,
+            </if>
+            <if test="UPDATE_TIME != null" >
+                UPDATE_TIME,
+            </if>
+            <if test="UPDATE_USER != null" >
+                UPDATE_USER,
+            </if>
+            <if test="DELETE_FLAG != null" >
+                DELETE_FLAG,
+            </if>
+            <if test="SALES_SALARY_CARD != null" >
+                SALES_SALARY_CARD,
+            </if>
+            <if test="SALES_BANK_CODE != null" >
+                SALES_BANK_CODE,
+            </if>
+            <if test="SALES_TYPE != null" >
+                SALES_TYPE,
+            </if>
+            <if test="PRODUCT != null" >
+                PRODUCT,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                #{ID},
+            </if>
+            <if test="PROJECT_SELLIN_INFO_ID != null" >
+                #{PROJECT_SELLIN_INFO_ID},
+            </if>
+            <if test="SALES_CARD_ID != null" >
+                #{SALES_CARD_ID,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_NAME != null" >
+                #{SALES_NAME,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_PHONE != null" >
+                #{SALES_PHONE,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_ADDRESS != null" >
+                #{SALES_ADDRESS,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_WORK_START != null" >
+                #{SALES_WORK_START,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_WORK_END != null" >
+                #{SALES_WORK_END,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_EAT_START != null" >
+                #{SALES_EAT_START,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_EAT_END != null" >
+                #{SALES_EAT_END,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_MEMO != null" >
+                #{SALES_MEMO,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_SCHEDULE_TYPE != null" >
+                #{SALES_SCHEDULE_TYPE},
+            </if>
+            <if test="SALES_EAT_START2 != null" >
+                #{SALES_EAT_START2,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_EAT_END2 != null" >
+                #{SALES_EAT_END2,jdbcType=VARCHAR},
+            </if>
+            <if test="CREATE_TIME != null" >
+                #{CREATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="CREATE_USER != null" >
+                #{CREATE_USER},
+            </if>
+            <if test="UPDATE_TIME != null" >
+                #{UPDATE_TIME,jdbcType=TIMESTAMP},
+            </if>
+            <if test="UPDATE_USER != null" >
+                #{UPDATE_USER},
+            </if>
+            <if test="DELETE_FLAG != null" >
+                #{DELETE_FLAG},
+            </if>
+            <if test="SALES_SALARY_CARD != null" >
+                #{SALES_SALARY_CARD,jdbcType=VARCHAR},
+            </if>
+            <if test="SALES_BANK_CODE != null" >
+                #{SALES_BANK_CODE},
+            </if>
+            <if test="SALES_TYPE != null" >
+                #{SALES_TYPE},
+            </if>
+            <if test="PRODUCT != null" >
+                #{PRODUCT,jdbcType=VARCHAR},
+            </if>
+        </trim>
+
+    </insert>
+
+    <select id="getSalesScheduleCalendarByCardId" parameterType="pd" resultType="pd">
+        SELECT
+            ID,
+            SALES_ID,
+            SCHEDULE_WORK_ID,
+            SC_SCHEDULE_DATE,
+            SC_CREATE_TIME
+        FROM
+          DM_SALES_SCHEDULE_CALENDAR
+        WHERE
+          SALES_ID = #{SALES_CARD_ID}
+        AND
+          SC_SCHEDULE_DATE = #{SC_SCHEDULE_DATE}
+    </select>
+
+    <insert id="saveSalesScheduleCalendar" parameterType="pd">
+        <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+            select HIBERNATE_SEQUENCE.nextval as ID from dual
+        </selectKey>
+            insert into DM_SALES_SCHEDULE_CALENDAR
+            <trim prefix="(" suffix=")" suffixOverrides="," >
+                <if test="ID != null" >
+                    ID,
+                </if>
+                <if test="SALES_ID != null" >
+                    SALES_ID,
+                </if>
+                <if test="SCHEDULE_WORK_ID != null" >
+                    SCHEDULE_WORK_ID,
+                </if>
+                <if test="SC_SCHEDULE_DATE != null" >
+                    SC_SCHEDULE_DATE,
+                </if>
+                <if test="SC_CREATE_TIME != null" >
+                    SC_CREATE_TIME,
+                </if>
+            </trim>
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="ID != null" >
+                    #{ID,jdbcType=DECIMAL},
+                </if>
+                <if test="SALES_ID != null" >
+                    #{SALES_ID,jdbcType=DECIMAL},
+                </if>
+                <if test="SCHEDULE_WORK_ID != null" >
+                    #{SCHEDULE_WORK_ID,jdbcType=DECIMAL},
+                </if>
+                <if test="SC_SCHEDULE_DATE != null" >
+                    #{SC_SCHEDULE_DATE,jdbcType=TIMESTAMP},
+                </if>
+                <if test="SC_CREATE_TIME != null" >
+                    #{SC_CREATE_TIME,jdbcType=TIMESTAMP},
+                </if>
+            </trim>
+    </insert>
+    <select id="findByProjectSellinInfoIdAndDeleteFlagAndSales" parameterType="pd" resultType="pd">
+        SELECT
+            ID,
+            PROJECT_SELLIN_INFO_ID,
+            SALES_CARD_ID,
+            SALES_NAME,
+            SALES_PHONE,
+            SALES_ADDRESS,
+            SALES_WORK_START,
+            SALES_WORK_END,
+            SALES_EAT_START,
+            SALES_EAT_END,
+            SALES_MEMO,
+            SALES_SCHEDULE_TYPE,
+            SALES_EAT_START2,
+            SALES_EAT_END2,
+            CREATE_TIME,
+            CREATE_USER,
+            UPDATE_TIME,
+            UPDATE_USER,
+            DELETE_FLAG,
+            SALES_SALARY_CARD,
+            SALES_BANK_CODE,
+            SALES_TYPE,
+            PRODUCT
+          FROM
+            DM_PROJECT_SELLIN_SALES
+          WHERE
+            DELETE_FLAG = #{DELETE_FLAG}
+          AND
+            SALES_CARD_ID = #{SALES_CARD_ID}
+    </select>
+
+    <select id="findSalesBySalesIdAndDate" resultType="pd" parameterType="pd">
+        SELECT
+            ID,
+            SALES_ID,
+            SCHEDULE_WORK_ID,
+            SC_SCHEDULE_DATE,
+            SC_CREATE_TIME
+        FROM
+            DM_SALES_SCHEDULE_CALENDAR
+        WHERE
+            SALES_ID = #{SALES_ID}
+        AND
+            SC_SCHEDULE_DATE = #{SC_SCHEDULE_DATE}
+    </select>
+
+    <select id="findSalesBySalesCardAndDate" resultType="pd" parameterType="pd">
+        SELECT
+              dm.ID,
+              dm.PROJECT_SELLIN_INFO_ID,
+              dm.SALES_CARD_ID,
+              dm.SALES_NAME,
+              dm.SALES_PHONE,
+              dm.SALES_ADDRESS,
+              dm.SALES_WORK_START,
+              dm.SALES_WORK_END,
+              dm.SALES_EAT_START,
+              dm.SALES_EAT_END,
+              dm.SALES_MEMO,
+              dm.SALES_SCHEDULE_TYPE,
+              dm.SALES_EAT_START2,
+              dm.SALES_EAT_END2,
+              dm.CREATE_TIME,
+              dm.CREATE_USER,
+              dm.UPDATE_TIME,
+              dm.UPDATE_USER,
+              dm.DELETE_FLAG,
+              dm.SALES_SALARY_CARD,
+              dm.SALES_BANK_CODE,
+              dm.SALES_TYPE,
+              dm.PRODUCT
+        FROM
+          DM_PROJECT_SELLIN_SALES dm
+        inner join  DM_SALES_SCHEDULE_CALENDAR ca on
+          ca.SALES_ID = dm.ID
+        and
+          ca.SC_SCHEDULE_DATE = #{SC_SCHEDULE_DATE}
+        WHERE
+          dm.SALES_CARD_ID = #{SALES_CARD_ID}
+    </select>
+</mapper>

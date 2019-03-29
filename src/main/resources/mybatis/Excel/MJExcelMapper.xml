@@ -1,0 +1,3688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MJExcelMapper">
+
+	<select id="findProjectById" parameterType="pd" resultType="pd">
+	SELECT
+		ID AS PROJECT_ID,
+		CODE,
+		DESCRIPTION,
+		END_DATE,
+		MANAGER_EMP_ID,
+		NAME,
+		ORG_CODE,
+		PRODUCTS_COLLECTION_TYPE,
+		START_DATE,
+		STATUS,
+		CATEGORY,
+		CUSTOMER,
+		USER_ID,
+		IS_DELETE,
+		PRODUCTION_BRAND,
+		CUSTOMER_PROJECT_NAME,
+		CUSTOMER_PROJECT_TYPE,
+		IS_MUST_AUDI
+	FROM
+		DM_PROJECT
+	WHERE
+		ID=#{PROJECT_ID}
+</select>
+
+	<select id="findByMJinfoByProjectChannelSn" parameterType="pd" resultType="pd">
+	SELECT
+				ID,
+		PROJECT_ID,
+		CHANNEL_SYNC_ID,
+		SCHEDULE_NUM,
+		PLAN_START_TIME,
+		PLAN_FINISHED_TIME,
+		EMP_CODE,
+		STATUS,
+		EXEC_STATUS,
+		AUDIT_STATUS,
+		SCHEDULE_TYPE,
+		AUDI_USER_ID,
+		AUDI_DATE,
+		UPDATE_TIME,
+		CREATE_USER,
+		CREATE_TIME,
+		C1,
+		C2,
+		C3,
+		C4,
+		C5,
+		C6,
+		C7,
+		C8,
+		C9,
+		C10,
+		C11,
+		C12,
+		C13,
+		C14,
+		C15,
+		C16,
+		C17,
+		C18,
+		C19,
+		C20,
+		C21,
+		C22,
+		C23,
+		C24,
+		C25,
+		C26,
+		C27,
+		C28,
+		C29,
+		C30,
+		C31,
+		C32,
+		C33,
+		C34,
+		C35,
+		C36,
+		C37,
+		C38,
+		C39,
+		C40,
+		C41,
+		C42,
+		C43,
+		C44,
+		C45,
+		C46,
+		C47,
+		C48,
+		C49,
+		C50,
+		C51,
+		C52,
+		C53,
+		C54,
+		C55,
+		C56,
+		C57,
+		C58,
+		C59,
+		C60,
+		C61,
+		C62,
+		C63,
+		C64,
+		C65,
+		C66,
+		C67,
+		C68,
+		C69,
+		C70,
+		C71,
+		C72,
+		C73,
+		C74,
+		C75,
+		C76,
+		C77,
+		C78,
+		C79,
+		C80,
+		C81,
+		C82,
+		C83,
+		C84,
+		C85,
+		C86,
+		C87,
+		C88,
+		C89,
+		C90,
+		C91,
+		C92,
+		C93,
+		C94,
+		C95,
+		C96,
+		C97,
+		C98,
+		C99,
+		C100,
+		CITY_EMP_CODE,
+		UPDATE_USER,
+		PLAN_SALES_COUNT,
+		OLD_PLAN_START_TIME,
+		OLD_PLAN_FINISHED_TIME,
+		CUST_DEPUTY_NAME,
+		CUST_DEPUTY_PHONE,
+		CUST_DIRECTOR_NAME,
+		CUST_DIRECTOR_PHONE,
+		CUST_MANAGER_NAME,
+		CUST_MANAGER_PHONE,
+		SELLIN_CHANNEL,
+		CUST_CHANNEL,
+		CUST_SYS,
+		CUST_CHANNEL_CODE,
+		CUST_CHANNEL_NAME,
+		PLAN_EXEC_DATE_TIME,
+		PLAN_COM_EXEC_DATE_TIME,
+		PLAN_THREE_PAY_EXEC_DATE_TIME,
+		PLAN_EXEC_STORE_TIME,
+		PLAN_COM_EXEC_STORE_TIME,
+		PLAN_THREE_PAY_EXEC_STORE_TIME,
+		PLAN_EXHIBIT_TYPE,
+		PLAN_EXHIBIT_START_TIME,
+		PLAN_EXHIBIT_END_TIME,
+		PLAN_STORE_PATROL_COUNT,
+		PLAN_WEEK_STORE_PATROL_COUNT,
+		PLAN_MONTH_STORE_PATROL_COUNT,
+		TOTAL_SALES_TARGET,
+		DAILY_SOTRE_SALES_TARGET
+	FROM
+		DM_PROJECT_SELLIN_INFO
+	WHERE
+		PROJECT_ID = #{PROJECT_ID}
+	AND
+		SCHEDULE_NUM = #{SCHEDULE_NUM}
+	AND
+		CHANNEL_SYNC_ID = #{CHANNEL_SYNC_ID}
+</select>
+
+	<select id="findByMJinfoByProject" parameterType="pd" resultType="pd">
+		SELECT
+				ID,
+		PROJECT_ID,
+		CHANNEL_SYNC_ID,
+		SCHEDULE_NUM,
+		PLAN_START_TIME,
+		PLAN_FINISHED_TIME,
+		EMP_CODE,
+		STATUS,
+		EXEC_STATUS,
+		AUDIT_STATUS,
+		SCHEDULE_TYPE,
+		AUDI_USER_ID,
+		AUDI_DATE,
+		UPDATE_TIME,
+		CREATE_USER,
+		CREATE_TIME,
+		C1,
+		C2,
+		C3,
+		C4,
+		C5,
+		C6,
+		C7,
+		C8,
+		C9,
+		C10,
+		C11,
+		C12,
+		C13,
+		C14,
+		C15,
+		C16,
+		C17,
+		C18,
+		C19,
+		C20,
+		C21,
+		C22,
+		C23,
+		C24,
+		C25,
+		C26,
+		C27,
+		C28,
+		C29,
+		C30,
+		C31,
+		C32,
+		C33,
+		C34,
+		C35,
+		C36,
+		C37,
+		C38,
+		C39,
+		C40,
+		C41,
+		C42,
+		C43,
+		C44,
+		C45,
+		C46,
+		C47,
+		C48,
+		C49,
+		C50,
+		C51,
+		C52,
+		C53,
+		C54,
+		C55,
+		C56,
+		C57,
+		C58,
+		C59,
+		C60,
+		C61,
+		C62,
+		C63,
+		C64,
+		C65,
+		C66,
+		C67,
+		C68,
+		C69,
+		C70,
+		C71,
+		C72,
+		C73,
+		C74,
+		C75,
+		C76,
+		C77,
+		C78,
+		C79,
+		C80,
+		C81,
+		C82,
+		C83,
+		C84,
+		C85,
+		C86,
+		C87,
+		C88,
+		C89,
+		C90,
+		C91,
+		C92,
+		C93,
+		C94,
+		C95,
+		C96,
+		C97,
+		C98,
+		C99,
+		C100,
+		CITY_EMP_CODE,
+		UPDATE_USER,
+		PLAN_SALES_COUNT,
+		OLD_PLAN_START_TIME,
+		OLD_PLAN_FINISHED_TIME,
+		CUST_DEPUTY_NAME,
+		CUST_DEPUTY_PHONE,
+		CUST_DIRECTOR_NAME,
+		CUST_DIRECTOR_PHONE,
+		CUST_MANAGER_NAME,
+		CUST_MANAGER_PHONE,
+		SELLIN_CHANNEL,
+		CUST_CHANNEL,
+		CUST_SYS,
+		CUST_CHANNEL_CODE,
+		CUST_CHANNEL_NAME,
+		PLAN_EXEC_DATE_TIME,
+		PLAN_COM_EXEC_DATE_TIME,
+		PLAN_THREE_PAY_EXEC_DATE_TIME,
+		PLAN_EXEC_STORE_TIME,
+		PLAN_COM_EXEC_STORE_TIME,
+		PLAN_THREE_PAY_EXEC_STORE_TIME,
+		PLAN_EXHIBIT_TYPE,
+		PLAN_EXHIBIT_START_TIME,
+		PLAN_EXHIBIT_END_TIME,
+		PLAN_STORE_PATROL_COUNT,
+		PLAN_WEEK_STORE_PATROL_COUNT,
+		PLAN_MONTH_STORE_PATROL_COUNT,
+		TOTAL_SALES_TARGET,
+		DAILY_SOTRE_SALES_TARGET
+	FROM
+		DM_PROJECT_SELLIN_INFO
+	WHERE
+		PROJECT_ID = #{PROJECT_ID}
+	</select>
+
+	<select id="findByMJinfoByProjectAndChannel" parameterType="pd" resultType="pd">
+		SELECT
+		ID,
+		PROJECT_ID,
+		CHANNEL_SYNC_ID,
+		SCHEDULE_NUM,
+		PLAN_START_TIME,
+		PLAN_FINISHED_TIME,
+		EMP_CODE,
+		STATUS,
+		EXEC_STATUS,
+		AUDIT_STATUS,
+		SCHEDULE_TYPE,
+		AUDI_USER_ID,
+		AUDI_DATE,
+		UPDATE_TIME,
+		CREATE_USER,
+		CREATE_TIME,
+		C1,
+		C2,
+		C3,
+		C4,
+		C5,
+		C6,
+		C7,
+		C8,
+		C9,
+		C10,
+		C11,
+		C12,
+		C13,
+		C14,
+		C15,
+		C16,
+		C17,
+		C18,
+		C19,
+		C20,
+		C21,
+		C22,
+		C23,
+		C24,
+		C25,
+		C26,
+		C27,
+		C28,
+		C29,
+		C30,
+		C31,
+		C32,
+		C33,
+		C34,
+		C35,
+		C36,
+		C37,
+		C38,
+		C39,
+		C40,
+		C41,
+		C42,
+		C43,
+		C44,
+		C45,
+		C46,
+		C47,
+		C48,
+		C49,
+		C50,
+		C51,
+		C52,
+		C53,
+		C54,
+		C55,
+		C56,
+		C57,
+		C58,
+		C59,
+		C60,
+		C61,
+		C62,
+		C63,
+		C64,
+		C65,
+		C66,
+		C67,
+		C68,
+		C69,
+		C70,
+		C71,
+		C72,
+		C73,
+		C74,
+		C75,
+		C76,
+		C77,
+		C78,
+		C79,
+		C80,
+		C81,
+		C82,
+		C83,
+		C84,
+		C85,
+		C86,
+		C87,
+		C88,
+		C89,
+		C90,
+		C91,
+		C92,
+		C93,
+		C94,
+		C95,
+		C96,
+		C97,
+		C98,
+		C99,
+		C100,
+		CITY_EMP_CODE,
+		UPDATE_USER,
+		PLAN_SALES_COUNT,
+		OLD_PLAN_START_TIME,
+		OLD_PLAN_FINISHED_TIME,
+		CUST_DEPUTY_NAME,
+		CUST_DEPUTY_PHONE,
+		CUST_DIRECTOR_NAME,
+		CUST_DIRECTOR_PHONE,
+		CUST_MANAGER_NAME,
+		CUST_MANAGER_PHONE,
+		SELLIN_CHANNEL,
+		CUST_CHANNEL,
+		CUST_SYS,
+		CUST_CHANNEL_CODE,
+		CUST_CHANNEL_NAME,
+		PLAN_EXEC_DATE_TIME,
+		PLAN_COM_EXEC_DATE_TIME,
+		PLAN_THREE_PAY_EXEC_DATE_TIME,
+		PLAN_EXEC_STORE_TIME,
+		PLAN_COM_EXEC_STORE_TIME,
+		PLAN_THREE_PAY_EXEC_STORE_TIME,
+		PLAN_EXHIBIT_TYPE,
+		PLAN_EXHIBIT_START_TIME,
+		PLAN_EXHIBIT_END_TIME,
+		PLAN_STORE_PATROL_COUNT,
+		PLAN_WEEK_STORE_PATROL_COUNT,
+		PLAN_MONTH_STORE_PATROL_COUNT,
+		TOTAL_SALES_TARGET,
+		DAILY_SOTRE_SALES_TARGET
+		FROM
+		DM_PROJECT_SELLIN_INFO
+		WHERE
+		PROJECT_ID = #{PROJECT_ID}
+		AND
+		CHANNEL_SYNC_ID = #{CHANNEL_SYNC_ID}
+	</select>
+
+	<insert id="saveProjectSellinInfo" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		INSERT INTO
+		DM_PROJECT_SELLIN_INFO
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				ID,
+			</if>
+			<if test="PROJECT_ID != null">
+				PROJECT_ID,
+			</if>
+			<if test="CHANNEL_SYNC_ID != null">
+				CHANNEL_SYNC_ID,
+			</if>
+			<if test="SCHEDULE_NUM != null">
+				SCHEDULE_NUM,
+			</if>
+			<if test="PLAN_START_TIME != null">
+				PLAN_START_TIME,
+			</if>
+			<if test="PLAN_FINISHED_TIME != null">
+				PLAN_FINISHED_TIME,
+			</if>
+			<if test="EMP_CODE != null">
+				EMP_CODE,
+			</if>
+			<if test="STATUS != null">
+				STATUS,
+			</if>
+			<if test="EXEC_STATUS != null">
+				EXEC_STATUS,
+			</if>
+			<if test="AUDIT_STATUS != null">
+				AUDIT_STATUS,
+			</if>
+			<if test="SCHEDULE_TYPE != null">
+				SCHEDULE_TYPE,
+			</if>
+			<if test="AUDI_USER_ID != null">
+				AUDI_USER_ID,
+			</if>
+			<if test="AUDI_DATE != null">
+				AUDI_DATE,
+			</if>
+			<if test="UPDATE_TIME != null">
+				UPDATE_TIME,
+			</if>
+			<if test="CREATE_USER != null">
+				CREATE_USER,
+			</if>
+			<if test="CREATE_TIME != null">
+				CREATE_TIME,
+			</if>
+			<if test="C1 != null">
+				C1,
+			</if>
+			<if test="C2 != null">
+				C2,
+			</if>
+			<if test="C3 != null">
+				C3,
+			</if>
+			<if test="C4 != null">
+				C4,
+			</if>
+			<if test="C5 != null">
+				C5,
+			</if>
+			<if test="C6 != null">
+				C6,
+			</if>
+			<if test="C7 != null">
+				C7,
+			</if>
+			<if test="C8 != null">
+				C8,
+			</if>
+			<if test="C9 != null">
+				C9,
+			</if>
+			<if test="C10 != null">
+				C10,
+			</if>
+			<if test="C11 != null">
+				C11,
+			</if>
+			<if test="C12 != null">
+				C12,
+			</if>
+			<if test="C13 != null">
+				C13,
+			</if>
+			<if test="C14 != null">
+				C14,
+			</if>
+			<if test="C15 != null">
+				C15,
+			</if>
+			<if test="C16 != null">
+				C16,
+			</if>
+			<if test="C17 != null">
+				C17,
+			</if>
+			<if test="C18 != null">
+				C18,
+			</if>
+			<if test="C19 != null">
+				C19,
+			</if>
+			<if test="C20 != null">
+				C20,
+			</if>
+			<if test="C21 != null">
+				C21,
+			</if>
+			<if test="C22 != null">
+				C22,
+			</if>
+			<if test="C23 != null">
+				C23,
+			</if>
+			<if test="C24 != null">
+				C24,
+			</if>
+			<if test="C25 != null">
+				C25,
+			</if>
+			<if test="C26 != null">
+				C26,
+			</if>
+			<if test="C27 != null">
+				C27,
+			</if>
+			<if test="C28 != null">
+				C28,
+			</if>
+			<if test="C29 != null">
+				C29,
+			</if>
+			<if test="C30 != null">
+				C30,
+			</if>
+			<if test="C31 != null">
+				C31,
+			</if>
+			<if test="C32 != null">
+				C32,
+			</if>
+			<if test="C33 != null">
+				C33,
+			</if>
+			<if test="C34 != null">
+				C34,
+			</if>
+			<if test="C35 != null">
+				C35,
+			</if>
+			<if test="C36 != null">
+				C36,
+			</if>
+			<if test="C37 != null">
+				C37,
+			</if>
+			<if test="C38 != null">
+				C38,
+			</if>
+			<if test="C39 != null">
+				C39,
+			</if>
+			<if test="C40 != null">
+				C40,
+			</if>
+			<if test="C41 != null">
+				C41,
+			</if>
+			<if test="C42 != null">
+				C42,
+			</if>
+			<if test="C43 != null">
+				C43,
+			</if>
+			<if test="C44 != null">
+				C44,
+			</if>
+			<if test="C45 != null">
+				C45,
+			</if>
+			<if test="C46 != null">
+				C46,
+			</if>
+			<if test="C47 != null">
+				C47,
+			</if>
+			<if test="C48 != null">
+				C48,
+			</if>
+			<if test="C49 != null">
+				C49,
+			</if>
+			<if test="C50 != null">
+				C50,
+			</if>
+			<if test="C51 != null">
+				C51,
+			</if>
+			<if test="C52 != null">
+				C52,
+			</if>
+			<if test="C53 != null">
+				C53,
+			</if>
+			<if test="C54 != null">
+				C54,
+			</if>
+			<if test="C55 != null">
+				C55,
+			</if>
+			<if test="C56 != null">
+				C56,
+			</if>
+			<if test="C57 != null">
+				C57,
+			</if>
+			<if test="C58 != null">
+				C58,
+			</if>
+			<if test="C59 != null">
+				C59,
+			</if>
+			<if test="C60 != null">
+				C60,
+			</if>
+			<if test="C61 != null">
+				C61,
+			</if>
+			<if test="C62 != null">
+				C62,
+			</if>
+			<if test="C63 != null">
+				C63,
+			</if>
+			<if test="C64 != null">
+				C64,
+			</if>
+			<if test="C65 != null">
+				C65,
+			</if>
+			<if test="C66 != null">
+				C66,
+			</if>
+			<if test="C67 != null">
+				C67,
+			</if>
+			<if test="C68 != null">
+				C68,
+			</if>
+			<if test="C69 != null">
+				C69,
+			</if>
+			<if test="C70 != null">
+				C70,
+			</if>
+			<if test="C71 != null">
+				C71,
+			</if>
+			<if test="C72 != null">
+				C72,
+			</if>
+			<if test="C73 != null">
+				C73,
+			</if>
+			<if test="C74 != null">
+				C74,
+			</if>
+			<if test="C75 != null">
+				C75,
+			</if>
+			<if test="C76 != null">
+				C76,
+			</if>
+			<if test="C77 != null">
+				C77,
+			</if>
+			<if test="C78 != null">
+				C78,
+			</if>
+			<if test="C79 != null">
+				C79,
+			</if>
+			<if test="C80 != null">
+				C80,
+			</if>
+			<if test="C81 != null">
+				C81,
+			</if>
+			<if test="C82 != null">
+				C82,
+			</if>
+			<if test="C83 != null">
+				C83,
+			</if>
+			<if test="C84 != null">
+				C84,
+			</if>
+			<if test="C85 != null">
+				C85,
+			</if>
+			<if test="C86 != null">
+				C86,
+			</if>
+			<if test="C87 != null">
+				C87,
+			</if>
+			<if test="C88 != null">
+				C88,
+			</if>
+			<if test="C89 != null">
+				C89,
+			</if>
+			<if test="C90 != null">
+				C90,
+			</if>
+			<if test="C91 != null">
+				C91,
+			</if>
+			<if test="C92 != null">
+				C92,
+			</if>
+			<if test="C93 != null">
+				C93,
+			</if>
+			<if test="C94 != null">
+				C94,
+			</if>
+			<if test="C95 != null">
+				C95,
+			</if>
+			<if test="C96 != null">
+				C96,
+			</if>
+			<if test="C97 != null">
+				C97,
+			</if>
+			<if test="C98 != null">
+				C98,
+			</if>
+			<if test="C99 != null">
+				C99,
+			</if>
+			<if test="C100 != null">
+				C100,
+			</if>
+			<if test="CITY_EMP_CODE != null">
+				CITY_EMP_CODE,
+			</if>
+			<if test="UPDATE_USER != null">
+				UPDATE_USER,
+			</if>
+			<if test="PLAN_SALES_COUNT != null">
+				PLAN_SALES_COUNT,
+			</if>
+			<if test="OLD_PLAN_START_TIME != null">
+				OLD_PLAN_START_TIME,
+			</if>
+			<if test="OLD_PLAN_FINISHED_TIME != null">
+				OLD_PLAN_FINISHED_TIME,
+			</if>
+			<if test="CUST_DEPUTY_NAME != null">
+				CUST_DEPUTY_NAME,
+			</if>
+			<if test="CUST_DEPUTY_PHONE != null">
+				CUST_DEPUTY_PHONE,
+			</if>
+			<if test="CUST_DIRECTOR_NAME != null">
+				CUST_DIRECTOR_NAME,
+			</if>
+			<if test="CUST_DIRECTOR_PHONE != null">
+				CUST_DIRECTOR_PHONE,
+			</if>
+			<if test="CUST_MANAGER_NAME != null">
+				CUST_MANAGER_NAME,
+			</if>
+			<if test="CUST_MANAGER_PHONE != null">
+				CUST_MANAGER_PHONE,
+			</if>
+			<if test="SELLIN_CHANNEL != null">
+				SELLIN_CHANNEL,
+			</if>
+			<if test="CUST_CHANNEL != null">
+				CUST_CHANNEL,
+			</if>
+			<if test="CUST_SYS != null">
+				CUST_SYS,
+			</if>
+			<if test="CUST_CHANNEL_CODE != null">
+				CUST_CHANNEL_CODE,
+			</if>
+			<if test="CUST_CHANNEL_NAME != null">
+				CUST_CHANNEL_NAME,
+			</if>
+			<if test="PLAN_EXEC_DATE_TIME != null">
+				PLAN_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_COM_EXEC_DATE_TIME != null">
+				PLAN_COM_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_DATE_TIME != null">
+				PLAN_THREE_PAY_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_EXEC_STORE_TIME != null">
+				PLAN_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_COM_EXEC_STORE_TIME != null">
+				PLAN_COM_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_STORE_TIME != null">
+				PLAN_THREE_PAY_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_EXHIBIT_TYPE != null">
+				PLAN_EXHIBIT_TYPE,
+			</if>
+			<if test="PLAN_EXHIBIT_START_TIME != null">
+				PLAN_EXHIBIT_START_TIME,
+			</if>
+			<if test="PLAN_EXHIBIT_END_TIME != null">
+				PLAN_EXHIBIT_END_TIME,
+			</if>
+			<if test="PLAN_STORE_PATROL_COUNT != null">
+				PLAN_STORE_PATROL_COUNT,
+			</if>
+			<if test="PLAN_WEEK_STORE_PATROL_COUNT != null">
+				PLAN_WEEK_STORE_PATROL_COUNT,
+			</if>
+			<if test="PLAN_MONTH_STORE_PATROL_COUNT != null">
+				PLAN_MONTH_STORE_PATROL_COUNT,
+			</if>
+			<if test="TOTAL_SALES_TARGET != null">
+				TOTAL_SALES_TARGET,
+			</if>
+			<if test="DAILY_SOTRE_SALES_TARGET != null">
+				DAILY_SOTRE_SALES_TARGET,
+			</if>
+			<if test="AREA_MANAGER_CODE != null">
+				AREA_MANAGER_CODE,
+			</if>
+			<if test="PLAN_EXHIBIT_NUM != null">
+				PLAN_EXHIBIT_NUM,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT_ID != null">
+				#{PROJECT_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="CHANNEL_SYNC_ID != null">
+				#{CHANNEL_SYNC_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_NUM != null">
+				#{SCHEDULE_NUM,jdbcType=BIGINT},
+			</if>
+			<if test="PLAN_START_TIME != null">
+				#{PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_FINISHED_TIME != null">
+				#{PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="EMP_CODE != null">
+				#{EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="STATUS != null">
+				#{STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="EXEC_STATUS != null">
+				#{EXEC_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDIT_STATUS != null">
+				#{AUDIT_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_TYPE != null">
+				#{SCHEDULE_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="AUDI_USER_ID != null">
+				#{AUDI_USER_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDI_DATE != null">
+				#{AUDI_DATE,jdbcType=TIMESTAMP},
+			</if>
+			<if test="UPDATE_TIME != null">
+				#{UPDATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="CREATE_USER != null">
+				#{CREATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="CREATE_TIME != null">
+				#{CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="C1 != null">
+				#{C1,jdbcType=VARCHAR},
+			</if>
+			<if test="C2 != null">
+				#{C2,jdbcType=VARCHAR},
+			</if>
+			<if test="C3 != null">
+				#{C3,jdbcType=VARCHAR},
+			</if>
+			<if test="C4 != null">
+				#{C4,jdbcType=VARCHAR},
+			</if>
+			<if test="C5 != null">
+				#{C5,jdbcType=VARCHAR},
+			</if>
+			<if test="C6 != null">
+				#{C6,jdbcType=VARCHAR},
+			</if>
+			<if test="C7 != null">
+				#{C7,jdbcType=VARCHAR},
+			</if>
+			<if test="C8 != null">
+				#{C8,jdbcType=VARCHAR},
+			</if>
+			<if test="C9 != null">
+				#{C9,jdbcType=VARCHAR},
+			</if>
+			<if test="C10 != null">
+				#{C10,jdbcType=VARCHAR},
+			</if>
+			<if test="C11 != null">
+				#{C11,jdbcType=VARCHAR},
+			</if>
+			<if test="C12 != null">
+				#{C12,jdbcType=VARCHAR},
+			</if>
+			<if test="C13 != null">
+				#{C13,jdbcType=VARCHAR},
+			</if>
+			<if test="C14 != null">
+				#{C14,jdbcType=VARCHAR},
+			</if>
+			<if test="C15 != null">
+				#{C15,jdbcType=VARCHAR},
+			</if>
+			<if test="C16 != null">
+				#{C16,jdbcType=VARCHAR},
+			</if>
+			<if test="C17 != null">
+				#{C17,jdbcType=VARCHAR},
+			</if>
+			<if test="C18 != null">
+				#{C18,jdbcType=VARCHAR},
+			</if>
+			<if test="C19 != null">
+				#{C19,jdbcType=VARCHAR},
+			</if>
+			<if test="C20 != null">
+				#{C20,jdbcType=VARCHAR},
+			</if>
+			<if test="C21 != null">
+				#{C21,jdbcType=VARCHAR},
+			</if>
+			<if test="C22 != null">
+				#{C22,jdbcType=VARCHAR},
+			</if>
+			<if test="C23 != null">
+				#{C23,jdbcType=VARCHAR},
+			</if>
+			<if test="C24 != null">
+				#{C24,jdbcType=VARCHAR},
+			</if>
+			<if test="C25 != null">
+				#{C25,jdbcType=VARCHAR},
+			</if>
+			<if test="C26 != null">
+				#{C26,jdbcType=VARCHAR},
+			</if>
+			<if test="C27 != null">
+				#{C27,jdbcType=VARCHAR},
+			</if>
+			<if test="C28 != null">
+				#{C28,jdbcType=VARCHAR},
+			</if>
+			<if test="C29 != null">
+				#{C29,jdbcType=VARCHAR},
+			</if>
+			<if test="C30 != null">
+				#{C30,jdbcType=VARCHAR},
+			</if>
+			<if test="C31 != null">
+				#{C31,jdbcType=VARCHAR},
+			</if>
+			<if test="C32 != null">
+				#{C32,jdbcType=VARCHAR},
+			</if>
+			<if test="C33 != null">
+				#{C33,jdbcType=VARCHAR},
+			</if>
+			<if test="C34 != null">
+				#{C34,jdbcType=VARCHAR},
+			</if>
+			<if test="C35 != null">
+				#{C35,jdbcType=VARCHAR},
+			</if>
+			<if test="C36 != null">
+				#{C36,jdbcType=VARCHAR},
+			</if>
+			<if test="C37 != null">
+				#{C37,jdbcType=VARCHAR},
+			</if>
+			<if test="C38 != null">
+				#{C38,jdbcType=VARCHAR},
+			</if>
+			<if test="C39 != null">
+				#{C39,jdbcType=VARCHAR},
+			</if>
+			<if test="C40 != null">
+				#{C40,jdbcType=VARCHAR},
+			</if>
+			<if test="C41 != null">
+				#{C41,jdbcType=VARCHAR},
+			</if>
+			<if test="C42 != null">
+				#{C42,jdbcType=VARCHAR},
+			</if>
+			<if test="C43 != null">
+				#{C43,jdbcType=VARCHAR},
+			</if>
+			<if test="C44 != null">
+				#{C44,jdbcType=VARCHAR},
+			</if>
+			<if test="C45 != null">
+				#{C45,jdbcType=VARCHAR},
+			</if>
+			<if test="C46 != null">
+				#{C46,jdbcType=VARCHAR},
+			</if>
+			<if test="C47 != null">
+				#{C47,jdbcType=VARCHAR},
+			</if>
+			<if test="C48 != null">
+				#{C48,jdbcType=VARCHAR},
+			</if>
+			<if test="C49 != null">
+				#{C49,jdbcType=VARCHAR},
+			</if>
+			<if test="C50 != null">
+				#{C50,jdbcType=VARCHAR},
+			</if>
+			<if test="C51 != null">
+				#{C51,jdbcType=VARCHAR},
+			</if>
+			<if test="C52 != null">
+				#{C52,jdbcType=VARCHAR},
+			</if>
+			<if test="C53 != null">
+				#{C53,jdbcType=VARCHAR},
+			</if>
+			<if test="C54 != null">
+				#{C54,jdbcType=VARCHAR},
+			</if>
+			<if test="C55 != null">
+				#{C55,jdbcType=VARCHAR},
+			</if>
+			<if test="C56 != null">
+				#{C56,jdbcType=VARCHAR},
+			</if>
+			<if test="C57 != null">
+				#{C57,jdbcType=VARCHAR},
+			</if>
+			<if test="C58 != null">
+				#{C58,jdbcType=VARCHAR},
+			</if>
+			<if test="C59 != null">
+				#{C59,jdbcType=VARCHAR},
+			</if>
+			<if test="C60 != null">
+				#{C60,jdbcType=VARCHAR},
+			</if>
+			<if test="C61 != null">
+				#{C61,jdbcType=VARCHAR},
+			</if>
+			<if test="C62 != null">
+				#{C62,jdbcType=VARCHAR},
+			</if>
+			<if test="C63 != null">
+				#{C63,jdbcType=VARCHAR},
+			</if>
+			<if test="C64 != null">
+				#{C64,jdbcType=VARCHAR},
+			</if>
+			<if test="C65 != null">
+				#{C65,jdbcType=VARCHAR},
+			</if>
+			<if test="C66 != null">
+				#{C66,jdbcType=VARCHAR},
+			</if>
+			<if test="C67 != null">
+				#{C67,jdbcType=VARCHAR},
+			</if>
+			<if test="C68 != null">
+				#{C68,jdbcType=VARCHAR},
+			</if>
+			<if test="C69 != null">
+				#{C69,jdbcType=VARCHAR},
+			</if>
+			<if test="C70 != null">
+				#{C70,jdbcType=VARCHAR},
+			</if>
+			<if test="C71 != null">
+				#{C71,jdbcType=VARCHAR},
+			</if>
+			<if test="C72 != null">
+				#{C72,jdbcType=VARCHAR},
+			</if>
+			<if test="C73 != null">
+				#{C73,jdbcType=VARCHAR},
+			</if>
+			<if test="C74 != null">
+				#{C74,jdbcType=VARCHAR},
+			</if>
+			<if test="C75 != null">
+				#{C75,jdbcType=VARCHAR},
+			</if>
+			<if test="C76 != null">
+				#{C76,jdbcType=VARCHAR},
+			</if>
+			<if test="C77 != null">
+				#{C77,jdbcType=VARCHAR},
+			</if>
+			<if test="C78 != null">
+				#{C78,jdbcType=VARCHAR},
+			</if>
+			<if test="C79 != null">
+				#{C79,jdbcType=VARCHAR},
+			</if>
+			<if test="C80 != null">
+				#{C80,jdbcType=VARCHAR},
+			</if>
+			<if test="C81 != null">
+				#{C81,jdbcType=VARCHAR},
+			</if>
+			<if test="C82 != null">
+				#{C82,jdbcType=VARCHAR},
+			</if>
+			<if test="C83 != null">
+				#{C83,jdbcType=VARCHAR},
+			</if>
+			<if test="C84 != null">
+				#{C84,jdbcType=VARCHAR},
+			</if>
+			<if test="C85 != null">
+				#{C85,jdbcType=VARCHAR},
+			</if>
+			<if test="C86 != null">
+				#{C86,jdbcType=VARCHAR},
+			</if>
+			<if test="C87 != null">
+				#{C87,jdbcType=VARCHAR},
+			</if>
+			<if test="C88 != null">
+				#{C88,jdbcType=VARCHAR},
+			</if>
+			<if test="C89 != null">
+				#{C89,jdbcType=VARCHAR},
+			</if>
+			<if test="C90 != null">
+				#{C90,jdbcType=VARCHAR},
+			</if>
+			<if test="C91 != null">
+				#{C91,jdbcType=VARCHAR},
+			</if>
+			<if test="C92 != null">
+				#{C92,jdbcType=VARCHAR},
+			</if>
+			<if test="C93 != null">
+				#{C93,jdbcType=VARCHAR},
+			</if>
+			<if test="C94 != null">
+				#{C94,jdbcType=VARCHAR},
+			</if>
+			<if test="C95 != null">
+				#{C95,jdbcType=VARCHAR},
+			</if>
+			<if test="C96 != null">
+				#{C96,jdbcType=VARCHAR},
+			</if>
+			<if test="C97 != null">
+				#{C97,jdbcType=VARCHAR},
+			</if>
+			<if test="C98 != null">
+				#{C98,jdbcType=VARCHAR},
+			</if>
+			<if test="C99 != null">
+				#{C99,jdbcType=VARCHAR},
+			</if>
+			<if test="C100 != null">
+				#{C100,jdbcType=VARCHAR},
+			</if>
+			<if test="CITY_EMP_CODE != null">
+				#{CITY_EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="UPDATE_USER != null">
+				#{UPDATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_SALES_COUNT != null">
+				#{PLAN_SALES_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="OLD_PLAN_START_TIME != null">
+				#{OLD_PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="OLD_PLAN_FINISHED_TIME != null">
+				#{OLD_PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="CUST_DEPUTY_NAME != null">
+				#{CUST_DEPUTY_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DEPUTY_PHONE != null">
+				#{CUST_DEPUTY_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DIRECTOR_NAME != null">
+				#{CUST_DIRECTOR_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DIRECTOR_PHONE != null">
+				#{CUST_DIRECTOR_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_MANAGER_NAME != null">
+				#{CUST_MANAGER_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_MANAGER_PHONE != null">
+				#{CUST_MANAGER_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="SELLIN_CHANNEL != null">
+				#{SELLIN_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL != null">
+				#{CUST_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_SYS != null">
+				#{CUST_SYS,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL_CODE != null">
+				#{CUST_CHANNEL_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL_NAME != null">
+				#{CUST_CHANNEL_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXEC_DATE_TIME != null">
+				#{PLAN_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_COM_EXEC_DATE_TIME != null">
+				#{PLAN_COM_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_DATE_TIME != null">
+				#{PLAN_THREE_PAY_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_EXEC_STORE_TIME != null">
+				#{PLAN_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_COM_EXEC_STORE_TIME != null">
+				#{PLAN_COM_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_STORE_TIME != null">
+				#{PLAN_THREE_PAY_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_EXHIBIT_TYPE != null">
+				#{PLAN_EXHIBIT_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXHIBIT_START_TIME != null">
+				#{PLAN_EXHIBIT_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_EXHIBIT_END_TIME != null">
+				#{PLAN_EXHIBIT_END_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_STORE_PATROL_COUNT != null">
+				#{PLAN_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_WEEK_STORE_PATROL_COUNT != null">
+				#{PLAN_WEEK_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_MONTH_STORE_PATROL_COUNT != null">
+				#{PLAN_MONTH_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="TOTAL_SALES_TARGET != null">
+				#{TOTAL_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test="DAILY_SOTRE_SALES_TARGET != null">
+				#{DAILY_SOTRE_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test="AREA_MANAGER_CODE != null">
+				#{AREA_MANAGER_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXHIBIT_NUM != null">
+				#{PLAN_EXHIBIT_NUM,jdbcType=VARCHAR},
+			</if>
+		</trim>
+
+	</insert>
+
+	<insert id="saveSellinInfoLog" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		INSERT INTO
+		DM_PROJECT_SELLIN_INFO_LOG
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				ID,
+			</if>
+			<if test="PROJECT_ID != null">
+				PROJECT_ID,
+			</if>
+			<if test="SOURCE_ID != null">
+				SOURCE_ID,
+			</if>
+			<if test="CHANNEL_SYNC_ID != null">
+				CHANNEL_SYNC_ID,
+			</if>
+			<if test="SCHEDULE_NUM != null">
+				SCHEDULE_NUM,
+			</if>
+			<if test="PLAN_START_TIME != null">
+				PLAN_START_TIME,
+			</if>
+			<if test="PLAN_FINISHED_TIME != null">
+				PLAN_FINISHED_TIME,
+			</if>
+			<if test="EMP_CODE != null">
+				EMP_CODE,
+			</if>
+			<if test="STATUS != null">
+				STATUS,
+			</if>
+			<if test="EXEC_STATUS != null">
+				EXEC_STATUS,
+			</if>
+			<if test="AUDIT_STATUS != null">
+				AUDIT_STATUS,
+			</if>
+			<if test="SCHEDULE_TYPE != null">
+				SCHEDULE_TYPE,
+			</if>
+			<if test="AUDI_USER_ID != null">
+				AUDI_USER_ID,
+			</if>
+			<if test="AUDI_DATE != null">
+				AUDI_DATE,
+			</if>
+			<if test="UPDATE_TIME != null">
+				UPDATE_TIME,
+			</if>
+			<if test="CREATE_USER != null">
+				CREATE_USER,
+			</if>
+			<if test="CREATE_TIME != null">
+				CREATE_TIME,
+			</if>
+			<if test="C1 != null">
+				C1,
+			</if>
+			<if test="C2 != null">
+				C2,
+			</if>
+			<if test="C3 != null">
+				C3,
+			</if>
+			<if test="C4 != null">
+				C4,
+			</if>
+			<if test="C5 != null">
+				C5,
+			</if>
+			<if test="C6 != null">
+				C6,
+			</if>
+			<if test="C7 != null">
+				C7,
+			</if>
+			<if test="C8 != null">
+				C8,
+			</if>
+			<if test="C9 != null">
+				C9,
+			</if>
+			<if test="C10 != null">
+				C10,
+			</if>
+			<if test="C11 != null">
+				C11,
+			</if>
+			<if test="C12 != null">
+				C12,
+			</if>
+			<if test="C13 != null">
+				C13,
+			</if>
+			<if test="C14 != null">
+				C14,
+			</if>
+			<if test="C15 != null">
+				C15,
+			</if>
+			<if test="C16 != null">
+				C16,
+			</if>
+			<if test="C17 != null">
+				C17,
+			</if>
+			<if test="C18 != null">
+				C18,
+			</if>
+			<if test="C19 != null">
+				C19,
+			</if>
+			<if test="C20 != null">
+				C20,
+			</if>
+			<if test="C21 != null">
+				C21,
+			</if>
+			<if test="C22 != null">
+				C22,
+			</if>
+			<if test="C23 != null">
+				C23,
+			</if>
+			<if test="C24 != null">
+				C24,
+			</if>
+			<if test="C25 != null">
+				C25,
+			</if>
+			<if test="C26 != null">
+				C26,
+			</if>
+			<if test="C27 != null">
+				C27,
+			</if>
+			<if test="C28 != null">
+				C28,
+			</if>
+			<if test="C29 != null">
+				C29,
+			</if>
+			<if test="C30 != null">
+				C30,
+			</if>
+			<if test="C31 != null">
+				C31,
+			</if>
+			<if test="C32 != null">
+				C32,
+			</if>
+			<if test="C33 != null">
+				C33,
+			</if>
+			<if test="C34 != null">
+				C34,
+			</if>
+			<if test="C35 != null">
+				C35,
+			</if>
+			<if test="C36 != null">
+				C36,
+			</if>
+			<if test="C37 != null">
+				C37,
+			</if>
+			<if test="C38 != null">
+				C38,
+			</if>
+			<if test="C39 != null">
+				C39,
+			</if>
+			<if test="C40 != null">
+				C40,
+			</if>
+			<if test="C41 != null">
+				C41,
+			</if>
+			<if test="C42 != null">
+				C42,
+			</if>
+			<if test="C43 != null">
+				C43,
+			</if>
+			<if test="C44 != null">
+				C44,
+			</if>
+			<if test="C45 != null">
+				C45,
+			</if>
+			<if test="C46 != null">
+				C46,
+			</if>
+			<if test="C47 != null">
+				C47,
+			</if>
+			<if test="C48 != null">
+				C48,
+			</if>
+			<if test="C49 != null">
+				C49,
+			</if>
+			<if test="C50 != null">
+				C50,
+			</if>
+			<if test="C51 != null">
+				C51,
+			</if>
+			<if test="C52 != null">
+				C52,
+			</if>
+			<if test="C53 != null">
+				C53,
+			</if>
+			<if test="C54 != null">
+				C54,
+			</if>
+			<if test="C55 != null">
+				C55,
+			</if>
+			<if test="C56 != null">
+				C56,
+			</if>
+			<if test="C57 != null">
+				C57,
+			</if>
+			<if test="C58 != null">
+				C58,
+			</if>
+			<if test="C59 != null">
+				C59,
+			</if>
+			<if test="C60 != null">
+				C60,
+			</if>
+			<if test="C61 != null">
+				C61,
+			</if>
+			<if test="C62 != null">
+				C62,
+			</if>
+			<if test="C63 != null">
+				C63,
+			</if>
+			<if test="C64 != null">
+				C64,
+			</if>
+			<if test="C65 != null">
+				C65,
+			</if>
+			<if test="C66 != null">
+				C66,
+			</if>
+			<if test="C67 != null">
+				C67,
+			</if>
+			<if test="C68 != null">
+				C68,
+			</if>
+			<if test="C69 != null">
+				C69,
+			</if>
+			<if test="C70 != null">
+				C70,
+			</if>
+			<if test="C71 != null">
+				C71,
+			</if>
+			<if test="C72 != null">
+				C72,
+			</if>
+			<if test="C73 != null">
+				C73,
+			</if>
+			<if test="C74 != null">
+				C74,
+			</if>
+			<if test="C75 != null">
+				C75,
+			</if>
+			<if test="C76 != null">
+				C76,
+			</if>
+			<if test="C77 != null">
+				C77,
+			</if>
+			<if test="C78 != null">
+				C78,
+			</if>
+			<if test="C79 != null">
+				C79,
+			</if>
+			<if test="C80 != null">
+				C80,
+			</if>
+			<if test="C81 != null">
+				C81,
+			</if>
+			<if test="C82 != null">
+				C82,
+			</if>
+			<if test="C83 != null">
+				C83,
+			</if>
+			<if test="C84 != null">
+				C84,
+			</if>
+			<if test="C85 != null">
+				C85,
+			</if>
+			<if test="C86 != null">
+				C86,
+			</if>
+			<if test="C87 != null">
+				C87,
+			</if>
+			<if test="C88 != null">
+				C88,
+			</if>
+			<if test="C89 != null">
+				C89,
+			</if>
+			<if test="C90 != null">
+				C90,
+			</if>
+			<if test="C91 != null">
+				C91,
+			</if>
+			<if test="C92 != null">
+				C92,
+			</if>
+			<if test="C93 != null">
+				C93,
+			</if>
+			<if test="C94 != null">
+				C94,
+			</if>
+			<if test="C95 != null">
+				C95,
+			</if>
+			<if test="C96 != null">
+				C96,
+			</if>
+			<if test="C97 != null">
+				C97,
+			</if>
+			<if test="C98 != null">
+				C98,
+			</if>
+			<if test="C99 != null">
+				C99,
+			</if>
+			<if test="C100 != null">
+				C100,
+			</if>
+			<if test="CITY_EMP_CODE != null">
+				CITY_EMP_CODE,
+			</if>
+			<if test="UPDATE_USER != null">
+				UPDATE_USER,
+			</if>
+			<if test="PLAN_SALES_COUNT != null">
+				PLAN_SALES_COUNT,
+			</if>
+			<if test="OLD_PLAN_START_TIME != null">
+				OLD_PLAN_START_TIME,
+			</if>
+			<if test="OLD_PLAN_FINISHED_TIME != null">
+				OLD_PLAN_FINISHED_TIME,
+			</if>
+			<if test="CUST_DEPUTY_NAME != null">
+				CUST_DEPUTY_NAME,
+			</if>
+			<if test="CUST_DEPUTY_PHONE != null">
+				CUST_DEPUTY_PHONE,
+			</if>
+			<if test="CUST_DIRECTOR_NAME != null">
+				CUST_DIRECTOR_NAME,
+			</if>
+			<if test="CUST_DIRECTOR_PHONE != null">
+				CUST_DIRECTOR_PHONE,
+			</if>
+			<if test="CUST_MANAGER_NAME != null">
+				CUST_MANAGER_NAME,
+			</if>
+			<if test="CUST_MANAGER_PHONE != null">
+				CUST_MANAGER_PHONE,
+			</if>
+			<if test="SELLIN_CHANNEL != null">
+				SELLIN_CHANNEL,
+			</if>
+			<if test="CUST_CHANNEL != null">
+				CUST_CHANNEL,
+			</if>
+			<if test="CUST_SYS != null">
+				CUST_SYS,
+			</if>
+			<if test="CUST_CHANNEL_CODE != null">
+				CUST_CHANNEL_CODE,
+			</if>
+			<if test="CUST_CHANNEL_NAME != null">
+				CUST_CHANNEL_NAME,
+			</if>
+			<if test="PLAN_EXEC_DATE_TIME != null">
+				PLAN_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_COM_EXEC_DATE_TIME != null">
+				PLAN_COM_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_DATE_TIME != null">
+				PLAN_THREE_PAY_EXEC_DATE_TIME,
+			</if>
+			<if test="PLAN_EXEC_STORE_TIME != null">
+				PLAN_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_COM_EXEC_STORE_TIME != null">
+				PLAN_COM_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_STORE_TIME != null">
+				PLAN_THREE_PAY_EXEC_STORE_TIME,
+			</if>
+			<if test="PLAN_EXHIBIT_TYPE != null">
+				PLAN_EXHIBIT_TYPE,
+			</if>
+			<if test="PLAN_EXHIBIT_START_TIME != null">
+				PLAN_EXHIBIT_START_TIME,
+			</if>
+			<if test="PLAN_EXHIBIT_END_TIME != null">
+				PLAN_EXHIBIT_END_TIME,
+			</if>
+			<if test="PLAN_STORE_PATROL_COUNT != null">
+				PLAN_STORE_PATROL_COUNT,
+			</if>
+			<if test="PLAN_WEEK_STORE_PATROL_COUNT != null">
+				PLAN_WEEK_STORE_PATROL_COUNT,
+			</if>
+			<if test="PLAN_MONTH_STORE_PATROL_COUNT != null">
+				PLAN_MONTH_STORE_PATROL_COUNT,
+			</if>
+			<if test="TOTAL_SALES_TARGET != null">
+				TOTAL_SALES_TARGET,
+			</if>
+			<if test="DAILY_SOTRE_SALES_TARGET != null">
+				DAILY_SOTRE_SALES_TARGET,
+			</if>
+			<if test="AREA_MANAGER_CODE != null">
+				AREA_MANAGER_CODE,
+			</if>
+			<if test="PLAN_EXHIBIT_NUM != null">
+				PLAN_EXHIBIT_NUM,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT_ID != null">
+				#{PROJECT_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="SOURCE_ID != null">
+				#{SOURCE_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="CHANNEL_SYNC_ID != null">
+				#{CHANNEL_SYNC_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_NUM != null">
+				#{SCHEDULE_NUM,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_START_TIME != null">
+				#{PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_FINISHED_TIME != null">
+				#{PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="EMP_CODE != null">
+				#{EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="STATUS != null">
+				#{STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="EXEC_STATUS != null">
+				#{EXEC_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDIT_STATUS != null">
+				#{AUDIT_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_TYPE != null">
+				#{SCHEDULE_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="AUDI_USER_ID != null">
+				#{AUDI_USER_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDI_DATE != null">
+				#{AUDI_DATE,jdbcType=TIMESTAMP},
+			</if>
+			<if test="UPDATE_TIME != null">
+				#{UPDATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="CREATE_USER != null">
+				#{CREATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="CREATE_TIME != null">
+				#{CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="C1 != null">
+				#{C1,jdbcType=VARCHAR},
+			</if>
+			<if test="C2 != null">
+				#{C2,jdbcType=VARCHAR},
+			</if>
+			<if test="C3 != null">
+				#{C3,jdbcType=VARCHAR},
+			</if>
+			<if test="C4 != null">
+				#{C4,jdbcType=VARCHAR},
+			</if>
+			<if test="C5 != null">
+				#{C5,jdbcType=VARCHAR},
+			</if>
+			<if test="C6 != null">
+				#{C6,jdbcType=VARCHAR},
+			</if>
+			<if test="C7 != null">
+				#{C7,jdbcType=VARCHAR},
+			</if>
+			<if test="C8 != null">
+				#{C8,jdbcType=VARCHAR},
+			</if>
+			<if test="C9 != null">
+				#{C9,jdbcType=VARCHAR},
+			</if>
+			<if test="C10 != null">
+				#{C10,jdbcType=VARCHAR},
+			</if>
+			<if test="C11 != null">
+				#{C11,jdbcType=VARCHAR},
+			</if>
+			<if test="C12 != null">
+				#{C12,jdbcType=VARCHAR},
+			</if>
+			<if test="C13 != null">
+				#{C13,jdbcType=VARCHAR},
+			</if>
+			<if test="C14 != null">
+				#{C14,jdbcType=VARCHAR},
+			</if>
+			<if test="C15 != null">
+				#{C15,jdbcType=VARCHAR},
+			</if>
+			<if test="C16 != null">
+				#{C16,jdbcType=VARCHAR},
+			</if>
+			<if test="C17 != null">
+				#{C17,jdbcType=VARCHAR},
+			</if>
+			<if test="C18 != null">
+				#{C18,jdbcType=VARCHAR},
+			</if>
+			<if test="C19 != null">
+				#{C19,jdbcType=VARCHAR},
+			</if>
+			<if test="C20 != null">
+				#{C20,jdbcType=VARCHAR},
+			</if>
+			<if test="C21 != null">
+				#{C21,jdbcType=VARCHAR},
+			</if>
+			<if test="C22 != null">
+				#{C22,jdbcType=VARCHAR},
+			</if>
+			<if test="C23 != null">
+				#{C23,jdbcType=VARCHAR},
+			</if>
+			<if test="C24 != null">
+				#{C24,jdbcType=VARCHAR},
+			</if>
+			<if test="C25 != null">
+				#{C25,jdbcType=VARCHAR},
+			</if>
+			<if test="C26 != null">
+				#{C26,jdbcType=VARCHAR},
+			</if>
+			<if test="C27 != null">
+				#{C27,jdbcType=VARCHAR},
+			</if>
+			<if test="C28 != null">
+				#{C28,jdbcType=VARCHAR},
+			</if>
+			<if test="C29 != null">
+				#{C29,jdbcType=VARCHAR},
+			</if>
+			<if test="C30 != null">
+				#{C30,jdbcType=VARCHAR},
+			</if>
+			<if test="C31 != null">
+				#{C31,jdbcType=VARCHAR},
+			</if>
+			<if test="C32 != null">
+				#{C32,jdbcType=VARCHAR},
+			</if>
+			<if test="C33 != null">
+				#{C33,jdbcType=VARCHAR},
+			</if>
+			<if test="C34 != null">
+				#{C34,jdbcType=VARCHAR},
+			</if>
+			<if test="C35 != null">
+				#{C35,jdbcType=VARCHAR},
+			</if>
+			<if test="C36 != null">
+				#{C36,jdbcType=VARCHAR},
+			</if>
+			<if test="C37 != null">
+				#{C37,jdbcType=VARCHAR},
+			</if>
+			<if test="C38 != null">
+				#{C38,jdbcType=VARCHAR},
+			</if>
+			<if test="C39 != null">
+				#{C39,jdbcType=VARCHAR},
+			</if>
+			<if test="C40 != null">
+				#{C40,jdbcType=VARCHAR},
+			</if>
+			<if test="C41 != null">
+				#{C41,jdbcType=VARCHAR},
+			</if>
+			<if test="C42 != null">
+				#{C42,jdbcType=VARCHAR},
+			</if>
+			<if test="C43 != null">
+				#{C43,jdbcType=VARCHAR},
+			</if>
+			<if test="C44 != null">
+				#{C44,jdbcType=VARCHAR},
+			</if>
+			<if test="C45 != null">
+				#{C45,jdbcType=VARCHAR},
+			</if>
+			<if test="C46 != null">
+				#{C46,jdbcType=VARCHAR},
+			</if>
+			<if test="C47 != null">
+				#{C47,jdbcType=VARCHAR},
+			</if>
+			<if test="C48 != null">
+				#{C48,jdbcType=VARCHAR},
+			</if>
+			<if test="C49 != null">
+				#{C49,jdbcType=VARCHAR},
+			</if>
+			<if test="C50 != null">
+				#{C50,jdbcType=VARCHAR},
+			</if>
+			<if test="C51 != null">
+				#{C51,jdbcType=VARCHAR},
+			</if>
+			<if test="C52 != null">
+				#{C52,jdbcType=VARCHAR},
+			</if>
+			<if test="C53 != null">
+				#{C53,jdbcType=VARCHAR},
+			</if>
+			<if test="C54 != null">
+				#{C54,jdbcType=VARCHAR},
+			</if>
+			<if test="C55 != null">
+				#{C55,jdbcType=VARCHAR},
+			</if>
+			<if test="C56 != null">
+				#{C56,jdbcType=VARCHAR},
+			</if>
+			<if test="C57 != null">
+				#{C57,jdbcType=VARCHAR},
+			</if>
+			<if test="C58 != null">
+				#{C58,jdbcType=VARCHAR},
+			</if>
+			<if test="C59 != null">
+				#{C59,jdbcType=VARCHAR},
+			</if>
+			<if test="C60 != null">
+				#{C60,jdbcType=VARCHAR},
+			</if>
+			<if test="C61 != null">
+				#{C61,jdbcType=VARCHAR},
+			</if>
+			<if test="C62 != null">
+				#{C62,jdbcType=VARCHAR},
+			</if>
+			<if test="C63 != null">
+				#{C63,jdbcType=VARCHAR},
+			</if>
+			<if test="C64 != null">
+				#{C64,jdbcType=VARCHAR},
+			</if>
+			<if test="C65 != null">
+				#{C65,jdbcType=VARCHAR},
+			</if>
+			<if test="C66 != null">
+				#{C66,jdbcType=VARCHAR},
+			</if>
+			<if test="C67 != null">
+				#{C67,jdbcType=VARCHAR},
+			</if>
+			<if test="C68 != null">
+				#{C68,jdbcType=VARCHAR},
+			</if>
+			<if test="C69 != null">
+				#{C69,jdbcType=VARCHAR},
+			</if>
+			<if test="C70 != null">
+				#{C70,jdbcType=VARCHAR},
+			</if>
+			<if test="C71 != null">
+				#{C71,jdbcType=VARCHAR},
+			</if>
+			<if test="C72 != null">
+				#{C72,jdbcType=VARCHAR},
+			</if>
+			<if test="C73 != null">
+				#{C73,jdbcType=VARCHAR},
+			</if>
+			<if test="C74 != null">
+				#{C74,jdbcType=VARCHAR},
+			</if>
+			<if test="C75 != null">
+				#{C75,jdbcType=VARCHAR},
+			</if>
+			<if test="C76 != null">
+				#{C76,jdbcType=VARCHAR},
+			</if>
+			<if test="C77 != null">
+				#{C77,jdbcType=VARCHAR},
+			</if>
+			<if test="C78 != null">
+				#{C78,jdbcType=VARCHAR},
+			</if>
+			<if test="C79 != null">
+				#{C79,jdbcType=VARCHAR},
+			</if>
+			<if test="C80 != null">
+				#{C80,jdbcType=VARCHAR},
+			</if>
+			<if test="C81 != null">
+				#{C81,jdbcType=VARCHAR},
+			</if>
+			<if test="C82 != null">
+				#{C82,jdbcType=VARCHAR},
+			</if>
+			<if test="C83 != null">
+				#{C83,jdbcType=VARCHAR},
+			</if>
+			<if test="C84 != null">
+				#{C84,jdbcType=VARCHAR},
+			</if>
+			<if test="C85 != null">
+				#{C85,jdbcType=VARCHAR},
+			</if>
+			<if test="C86 != null">
+				#{C86,jdbcType=VARCHAR},
+			</if>
+			<if test="C87 != null">
+				#{C87,jdbcType=VARCHAR},
+			</if>
+			<if test="C88 != null">
+				#{C88,jdbcType=VARCHAR},
+			</if>
+			<if test="C89 != null">
+				#{C89,jdbcType=VARCHAR},
+			</if>
+			<if test="C90 != null">
+				#{C90,jdbcType=VARCHAR},
+			</if>
+			<if test="C91 != null">
+				#{C91,jdbcType=VARCHAR},
+			</if>
+			<if test="C92 != null">
+				#{C92,jdbcType=VARCHAR},
+			</if>
+			<if test="C93 != null">
+				#{C93,jdbcType=VARCHAR},
+			</if>
+			<if test="C94 != null">
+				#{C94,jdbcType=VARCHAR},
+			</if>
+			<if test="C95 != null">
+				#{C95,jdbcType=VARCHAR},
+			</if>
+			<if test="C96 != null">
+				#{C96,jdbcType=VARCHAR},
+			</if>
+			<if test="C97 != null">
+				#{C97,jdbcType=VARCHAR},
+			</if>
+			<if test="C98 != null">
+				#{C98,jdbcType=VARCHAR},
+			</if>
+			<if test="C99 != null">
+				#{C99,jdbcType=VARCHAR},
+			</if>
+			<if test="C100 != null">
+				#{C100,jdbcType=VARCHAR},
+			</if>
+			<if test="CITY_EMP_CODE != null">
+				#{CITY_EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="UPDATE_USER != null">
+				#{UPDATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_SALES_COUNT != null">
+				#{PLAN_SALES_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="OLD_PLAN_START_TIME != null">
+				#{OLD_PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="OLD_PLAN_FINISHED_TIME != null">
+				#{OLD_PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="CUST_DEPUTY_NAME != null">
+				#{CUST_DEPUTY_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DEPUTY_PHONE != null">
+				#{CUST_DEPUTY_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DIRECTOR_NAME != null">
+				#{CUST_DIRECTOR_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_DIRECTOR_PHONE != null">
+				#{CUST_DIRECTOR_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_MANAGER_NAME != null">
+				#{CUST_MANAGER_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_MANAGER_PHONE != null">
+				#{CUST_MANAGER_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test="SELLIN_CHANNEL != null">
+				#{SELLIN_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL != null">
+				#{CUST_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_SYS != null">
+				#{CUST_SYS,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL_CODE != null">
+				#{CUST_CHANNEL_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="CUST_CHANNEL_NAME != null">
+				#{CUST_CHANNEL_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXEC_DATE_TIME != null">
+				#{PLAN_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_COM_EXEC_DATE_TIME != null">
+				#{PLAN_COM_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_DATE_TIME != null">
+				#{PLAN_THREE_PAY_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_EXEC_STORE_TIME != null">
+				#{PLAN_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_COM_EXEC_STORE_TIME != null">
+				#{PLAN_COM_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_THREE_PAY_EXEC_STORE_TIME != null">
+				#{PLAN_THREE_PAY_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_EXHIBIT_TYPE != null">
+				#{PLAN_EXHIBIT_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXHIBIT_START_TIME != null">
+				#{PLAN_EXHIBIT_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_EXHIBIT_END_TIME != null">
+				#{PLAN_EXHIBIT_END_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_STORE_PATROL_COUNT != null">
+				#{PLAN_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_WEEK_STORE_PATROL_COUNT != null">
+				#{PLAN_WEEK_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_MONTH_STORE_PATROL_COUNT != null">
+				#{PLAN_MONTH_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test="TOTAL_SALES_TARGET != null">
+				#{TOTAL_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test="DAILY_SOTRE_SALES_TARGET != null">
+				#{DAILY_SOTRE_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test="AREA_MANAGER_CODE != null">
+				#{AREA_MANAGER_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="PLAN_EXHIBIT_NUM != null">
+				#{PLAN_EXHIBIT_NUM,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<insert id="saveSellinHistory" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		INSERT INTO DM_SELLIN_HISTORY
+		(ID,PROJECT_SELLIN_INFO_LOG_ID,CHANGE_TIMES,CREATE_TIME)
+		VALUES
+		(#{ID},#{PROJECT_SELLIN_INFO_LOG_ID},#{CHANGE_TIMES},#{CREATE_TIME})
+	</insert>
+
+	<select id="findSellinHistory" parameterType="pd" resultType="pd">
+		SELECT ID,
+		  PROJECT_SELLIN_INFO_LOG_ID,
+		  CHANGE_TIMES,
+		  CREATE_TIME
+		FROM DM_SELLIN_HISTORY
+		WHERE PROJECT_SELLIN_INFO_LOG_ID
+		in (select id from DM_PROJECT_SELLIN_INFO_LOG where #{ID} = SOURCE_ID)
+	</select>
+
+	<insert id="saveSellinHistoryDetail" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		INSERT INTO
+		DM_PROJECT_SELLIN_HIS_DETAIL
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				ID,
+			</if>
+			<if test="PROJECT_SELLIN_INFO_ID != null">
+				PROJECT_SELLIN_INFO_ID,
+			</if>
+			<if test="UPDATE_USER != null">
+				UPDATE_USER,
+			</if>
+			<if test="CREATE_TIME != null">
+				CREATE_TIME,
+			</if>
+			<if test="REMARKS != null">
+				REMARKS,
+			</if>
+			<if test="OPTION_FLAG != null">
+				OPTION_FLAG,
+			</if>
+			<if test="SELLIN_INFO != null">
+				SELLIN_INFO,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT_SELLIN_INFO_ID != null">
+				#{PROJECT_SELLIN_INFO_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="UPDATE_USER != null">
+				#{UPDATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="CREATE_TIME != null">
+				#{CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="REMARKS != null">
+				#{REMARKS,jdbcType=VARCHAR},
+			</if>
+			<if test="OPTION_FLAG != null">
+				#{OPTION_FLAG,jdbcType=DECIMAL},
+			</if>
+			<if test="SELLIN_INFO != null">
+				#{SELLIN_INFO,jdbcType=CLOB},
+			</if>
+		</trim>
+	</insert>
+
+	<select id="findDmProjectStoreByProjectAndChannel" parameterType="pd" resultType="pd">
+		SELECT
+			ID,
+			CHANNEL_CODE,
+			CHANNEL,
+			PROJECT,
+			REQUIRED_SALES_NUMBER
+		 FROM
+		 	DM_PROJECT_STORE
+		 WHERE
+		 	CHANNEL = #{CHANNEL}
+		  AND
+		  	PROJECT = #{PROJECT}
+		  <if test="CHANNEL_CODE !=null">
+		  AND
+		 	CHANNEL_CODE = #{CHANNEL_CODE}
+		  </if>
+	</select>
+
+	<select id="findProjectStoreByProjectAndChannel" parameterType="pd" resultType="pd">
+		SELECT
+			dpsi.id,
+			dpsi.project_sellin_info_id,
+			dpsi.so_update_user,
+			dpsi.so_update_time,
+			dpsi.so_create_user,
+			dpsi.so_create_time,
+			dpsi.so_status,
+			dpsi.so_plan_open_time,
+			dpsi.so_plan_finish_time,
+			dpsi.so_open_time,
+			dpsi.so_open_type,
+			dpsi.so_exhibit_type,
+			dpsi.so_enter_time,
+			dpsi.so_leave_time,
+			dpsi.so_patrol_time,
+			dpsi.so_patrol_position_status,
+			dpsi.so_exhibit_photos,
+			dpsi.so_sales_photos,
+			dpsi.so_exec_emp_code,
+			dpsi.so_special_situation,
+			dpsi.so_upload_time,
+			dpsi.so1,
+			dpsi.so2,
+			dpsi.so3,
+			dpsi.so4,
+			dpsi.so5,
+			dpsi.so6,
+			dpsi.so7,
+			dpsi.so8,
+			dpsi.so9,
+			dpsi.so10,
+			dpsi.so_report_type,
+			dpsi.so_report_user,
+			dpsi.audi_status,
+			dpsi.audi_opinion,
+			dpsi.audi_user,
+			dpsi.audi_time,
+			dpsi.so_sales_exhibit_type,
+			dpsi.so_sales_exhibit_photos,
+			dpsi.so_sales_open_photos,
+			dpsi.so_sales_action_photos,
+			dpsi.so_sales_compet_photos,
+			dpsi.so_sales_open_code,
+			dpsi.so_sales_report_time,
+			dpsi.so_sales_question_feedback
+		FROM
+			dm_project_sellin_store_open dpsi
+		inner join
+			DM_PROJECT_SELLIN_INFO dpse
+		on
+		  	dpsi.PROJECT_SELLIN_INFO_ID = dpse.ID
+		and
+			dpse.PROJECT_ID = #{PROJECT}
+		and
+			dpse.CHANNEL_SYNC_ID = #{CHANNEL}
+	</select>
+
+	<select id="findByProjectSellinExecdateAndChannel" parameterType="pd" resultType="pd">
+		SELECT
+		  dpse.ID,
+		  dpse.PROJECT_SELLIN_INFO_ID,
+		  dpse.HEADER_ID,
+		  dpse.EXEC_DATE
+		FROM
+		  DM_PROJECT_SELLIN_EXECDATE dpse
+		inner join
+		  DM_PROJECT_SELLIN_INFO dpsi
+		on
+		  dpse.PROJECT_SELLIN_INFO_ID = dpsi.ID
+		where
+		  dpsi.ID = #{PROJECT_SELLIN_INFO_ID}
+		and
+		  dpsi.CHANNEL_SYNC_ID = #{CHANNEL}
+		order by dpse.EXEC_DATE asc
+
+	</select>
+
+	<insert id="saveProjectStore" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		insert into DM_PROJECT_STORE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				ID,
+			</if>
+			<if test="CHANNEL_CODE != null">
+				CHANNEL_CODE,
+			</if>
+			<if test="CHANNEL != null">
+				CHANNEL,
+			</if>
+			<if test="PROJECT != null">
+				PROJECT,
+			</if>
+			<if test="REQUIRED_SALES_NUMBER != null">
+				REQUIRED_SALES_NUMBER,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="CHANNEL_CODE != null">
+				#{CHANNEL_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="CHANNEL != null">
+				#{CHANNEL,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT != null">
+				#{PROJECT,jdbcType=DECIMAL},
+			</if>
+			<if test="REQUIRED_SALES_NUMBER != null">
+				#{REQUIRED_SALES_NUMBER,jdbcType=DECIMAL},
+			</if>
+		</trim>
+
+	</insert>
+
+	<insert id="saveProjectSellinStore" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		insert into DM_PROJECT_SELLIN_STORE_OPEN
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="ID != null" >
+				ID,
+			</if>
+			<if test="PROJECT_SELLIN_INFO_ID != null" >
+				PROJECT_SELLIN_INFO_ID,
+			</if>
+			<if test="SO_UPDATE_USER != null" >
+				SO_UPDATE_USER,
+			</if>
+			<if test="SO_UPDATE_TIME != null" >
+				SO_UPDATE_TIME,
+			</if>
+			<if test="SO_CREATE_USER != null" >
+				SO_CREATE_USER,
+			</if>
+			<if test="SO_CREATE_TIME != null" >
+				SO_CREATE_TIME,
+			</if>
+			<if test="SO_STATUS != null" >
+				SO_STATUS,
+			</if>
+			<if test="SO_PLAN_OPEN_TIME != null" >
+				SO_PLAN_OPEN_TIME,
+			</if>
+			<if test="SO_PLAN_FINISH_TIME != null" >
+				SO_PLAN_FINISH_TIME,
+			</if>
+			<if test="SO_OPEN_TIME != null" >
+				SO_OPEN_TIME,
+			</if>
+			<if test="SO_OPEN_TYPE != null" >
+				SO_OPEN_TYPE,
+			</if>
+			<if test="SO_EXHIBIT_TYPE != null" >
+				SO_EXHIBIT_TYPE,
+			</if>
+			<if test="SO_ENTER_TIME != null" >
+				SO_ENTER_TIME,
+			</if>
+			<if test="SO_LEAVE_TIME != null" >
+				SO_LEAVE_TIME,
+			</if>
+			<if test="SO_PATROL_TIME != null" >
+				SO_PATROL_TIME,
+			</if>
+			<if test="SO_PATROL_POSITION_STATUS != null" >
+				SO_PATROL_POSITION_STATUS,
+			</if>
+			<if test="SO_EXHIBIT_PHOTOS != null" >
+				SO_EXHIBIT_PHOTOS,
+			</if>
+			<if test="SO_SALES_PHOTOS != null" >
+				SO_SALES_PHOTOS,
+			</if>
+			<if test="SO_EXEC_EMP_CODE != null" >
+				SO_EXEC_EMP_CODE,
+			</if>
+			<if test="SO_SPECIAL_SITUATION != null" >
+				SO_SPECIAL_SITUATION,
+			</if>
+			<if test="SO_UPLOAD_TIME != null" >
+				SO_UPLOAD_TIME,
+			</if>
+			<if test="So1 != null" >
+				SO1,
+			</if>
+			<if test="So2 != null" >
+				SO2,
+			</if>
+			<if test="So3 != null" >
+				SO3,
+			</if>
+			<if test="So4 != null" >
+				SO4,
+			</if>
+			<if test="So5 != null" >
+				SO5,
+			</if>
+			<if test="So6 != null" >
+				SO6,
+			</if>
+			<if test="So7 != null" >
+				SO7,
+			</if>
+			<if test="So8 != null" >
+				SO8,
+			</if>
+			<if test="So9 != null" >
+				SO9,
+			</if>
+			<if test="So10 != null" >
+				SO10,
+			</if>
+			<if test="SO_REPORT_TYPE != null" >
+				SO_REPORT_TYPE,
+			</if>
+			<if test="SO_REPORT_USER != null" >
+				SO_REPORT_USER,
+			</if>
+			<if test="AUDI_STATUS != null" >
+				AUDI_STATUS,
+			</if>
+			<if test="AUDI_OPINION != null" >
+				AUDI_OPINION,
+			</if>
+			<if test="AUDI_USER != null" >
+				AUDI_USER,
+			</if>
+			<if test="AUDI_TIME != null" >
+				AUDI_TIME,
+			</if>
+			<if test="SO_SALES_EXHIBIT_TYPE != null" >
+				SO_SALES_EXHIBIT_TYPE,
+			</if>
+			<if test="SO_SALES_EXHIBIT_PHOTOS != null" >
+				SO_SALES_EXHIBIT_PHOTOS,
+			</if>
+			<if test="SO_SALES_OPEN_PHOTOS != null" >
+				SO_SALES_OPEN_PHOTOS,
+			</if>
+			<if test="SO_SALES_ACTION_PHOTOS != null" >
+				SO_SALES_ACTION_PHOTOS,
+			</if>
+			<if test="SO_SALES_COMPET_PHOTOS != null" >
+				SO_SALES_COMPET_PHOTOS,
+			</if>
+			<if test="SO_SALES_OPEN_CODE != null" >
+				SO_SALES_OPEN_CODE,
+			</if>
+			<if test="SO_SALES_REPORT_TIME != null" >
+				SO_SALES_REPORT_TIME,
+			</if>
+			<if test="SO_SALES_QUESTION_FEEDBACK != null" >
+				SO_SALES_QUESTION_FEEDBACK,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="ID != null" >
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT_SELLIN_INFO_ID != null" >
+				#{PROJECT_SELLIN_INFO_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_UPDATE_USER != null" >
+				#{SO_UPDATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_UPDATE_TIME != null" >
+				#{SO_UPDATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_CREATE_USER != null" >
+				#{SO_CREATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_CREATE_TIME != null" >
+				#{SO_CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_STATUS != null" >
+				#{SO_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_PLAN_OPEN_TIME != null" >
+				#{SO_PLAN_OPEN_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_PLAN_FINISH_TIME != null" >
+				#{SO_PLAN_FINISH_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_OPEN_TIME != null" >
+				#{SO_OPEN_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_OPEN_TYPE != null" >
+				#{SO_OPEN_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_EXHIBIT_TYPE != null" >
+				#{SO_EXHIBIT_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_ENTER_TIME != null" >
+				#{SO_ENTER_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_LEAVE_TIME != null" >
+				#{SO_LEAVE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_PATROL_TIME != null" >
+				#{SO_PATROL_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_PATROL_POSITION_STATUS != null" >
+				#{SO_PATROL_POSITION_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_EXHIBIT_PHOTOS != null" >
+				#{SO_EXHIBIT_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_PHOTOS != null" >
+				#{SO_SALES_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_EXEC_EMP_CODE != null" >
+				#{SO_EXEC_EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SPECIAL_SITUATION != null" >
+				#{SO_SPECIAL_SITUATION,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_UPLOAD_TIME != null" >
+				#{SO_UPLOAD_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="So1 != null" >
+				#{So1,jdbcType=VARCHAR},
+			</if>
+			<if test="So2 != null" >
+				#{So2,jdbcType=VARCHAR},
+			</if>
+			<if test="So3 != null" >
+				#{So3,jdbcType=VARCHAR},
+			</if>
+			<if test="So4 != null" >
+				#{So4,jdbcType=VARCHAR},
+			</if>
+			<if test="So5 != null" >
+				#{So5,jdbcType=VARCHAR},
+			</if>
+			<if test="So6 != null" >
+				#{So6,jdbcType=VARCHAR},
+			</if>
+			<if test="So7 != null" >
+				#{So7,jdbcType=VARCHAR},
+			</if>
+			<if test="So8 != null" >
+				#{So8,jdbcType=VARCHAR},
+			</if>
+			<if test="So9 != null" >
+				#{So9,jdbcType=VARCHAR},
+			</if>
+			<if test="So10 != null" >
+				#{So10,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_REPORT_TYPE != null" >
+				#{SO_REPORT_TYPE,jdbcType=DECIMAL},
+			</if>
+			<if test="SO_REPORT_USER != null" >
+				#{SO_REPORT_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDI_STATUS != null" >
+				#{AUDI_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDI_OPINION != null" >
+				#{AUDI_OPINION,jdbcType=VARCHAR},
+			</if>
+			<if test="AUDI_USER != null" >
+				#{AUDI_USER,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDI_TIME != null" >
+				#{AUDI_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_SALES_EXHIBIT_TYPE != null" >
+				#{SO_SALES_EXHIBIT_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_EXHIBIT_PHOTOS != null" >
+				#{SO_SALES_EXHIBIT_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_OPEN_PHOTOS != null" >
+				#{SO_SALES_OPEN_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_ACTION_PHOTOS != null" >
+				#{SO_SALES_ACTION_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_COMPET_PHOTOS != null" >
+				#{SO_SALES_COMPET_PHOTOS,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_OPEN_CODE != null" >
+				#{SO_SALES_OPEN_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="SO_SALES_REPORT_TIME != null" >
+				#{SO_SALES_REPORT_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="SO_SALES_QUESTION_FEEDBACK != null" >
+				#{SO_SALES_QUESTION_FEEDBACK,jdbcType=VARCHAR},
+			</if>
+		</trim>
+
+	</insert>
+
+	<select id="findMdEmpByEmpCode" parameterType="pd" resultType="pd">
+		SELECT
+			EMP_PK,
+			EMP_TYPE,
+			EMP_CODE,
+			AD_ID,
+			EMP_NAME,
+			EMP_S_CODE,
+			EMP_GENDER,
+			EMP_TITLE,
+			HIRE_DATE,
+			LEAVE_DATE,
+			EMP_ADDR,
+			EMP_PHONE,
+			EMP_EMAIL,
+			EMP_STATUS,
+			MEMO,
+			CRT_APP,
+			CRT_USER,
+			CRT_TIME,
+			UPD_APP,
+			UPD_USER,
+			UPD_TIME,
+			IS_DEL,
+			WORK_AD_ID,
+			RANK,
+			RESIDENT_NATURE,
+			PROMOTER_TYPE,
+			CONTRACT_CODE,
+			CONTRACT_START_DATE,
+			CONTRACT_END_DATE,
+			ORG_CODE,
+			COMPANY_CODE,
+			WORK_TYPE,
+			EMP_POSITION
+		FROM
+			MD_EMP
+		WHERE
+			EMP_CODE = #{EMP_CODE}
+		AND
+			IS_DEL = 0
+
+	</select>
+
+	<select id="findMdEmpByEmpCodeIs" parameterType="pd" resultType="pd">
+		SELECT
+		EMP_PK,
+		EMP_TYPE,
+		EMP_CODE,
+		AD_ID,
+		EMP_NAME,
+		EMP_S_CODE,
+		EMP_GENDER,
+		EMP_TITLE,
+		HIRE_DATE,
+		LEAVE_DATE,
+		EMP_ADDR,
+		EMP_PHONE,
+		EMP_EMAIL,
+		EMP_STATUS,
+		MEMO,
+		CRT_APP,
+		CRT_USER,
+		CRT_TIME,
+		UPD_APP,
+		UPD_USER,
+		UPD_TIME,
+		IS_DEL,
+		WORK_AD_ID,
+		RANK,
+		RESIDENT_NATURE,
+		PROMOTER_TYPE,
+		CONTRACT_CODE,
+		CONTRACT_START_DATE,
+		CONTRACT_END_DATE,
+		ORG_CODE,
+		COMPANY_CODE,
+		WORK_TYPE,
+		EMP_POSITION
+		FROM
+		MD_EMP
+		WHERE
+		EMP_CODE = #{EMP_CODE}
+		AND
+		IS_DEL = 0
+		AND
+		EMP_TYPE = 1002
+	</select>
+
+	<select id="findProjectEmployeeByProjectAndEmpId" parameterType="pd" resultType="pd">
+		SELECT
+			ID,
+			EMP_ID,
+			EMP_NAME,
+			RANK_TYPE,
+			TITLE_WITHIN_THE_PROJECT,
+			PARENT,
+			PROJECT,
+			CREATE_TIME,
+			UPDATE_TIME
+		FROM
+			DM_PROJECT_EMPLOYEE
+		WHERE
+			PROJECT = #{PROJECT}
+		AND
+			EMP_ID = #{EMP_ID}
+	</select>
+
+	<select id="findProjectEmployeeByProject" parameterType="pd" resultType="pd">
+		SELECT
+			ID,
+			EMP_ID,
+			EMP_NAME,
+			RANK_TYPE,
+			TITLE_WITHIN_THE_PROJECT,
+			PARENT,
+			PROJECT,
+			CREATE_TIME,
+			UPDATE_TIME
+		FROM
+			DM_PROJECT_EMPLOYEE
+		WHERE
+			PROJECT = #{PROJECT}
+	</select>
+
+	<insert id="saveProjectEmployee" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		insert into DM_PROJECT_EMPLOYEE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				ID,
+			</if>
+			<if test="EMP_ID != null">
+				EMP_ID,
+			</if>
+			<if test="EMP_NAME != null">
+				EMP_NAME,
+			</if>
+			<if test="RANK_TYPE != null">
+				RANK_TYPE,
+			</if>
+			<if test="TITLE_WITHIN_THE_PROJECT != null">
+				TITLE_WITHIN_THE_PROJECT,
+			</if>
+			<if test="PARENT != null">
+				PARENT,
+			</if>
+			<if test="PROJECT != null">
+				PROJECT,
+			</if>
+			<if test="CREATE_TIME != null">
+				CREATE_TIME,
+			</if>
+			<if test="UPDATE_TIME != null">
+				UPDATE_TIME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="ID != null">
+				#{ID,jdbcType=DECIMAL},
+			</if>
+			<if test="EMP_ID != null">
+				#{EMP_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="EMP_NAME != null">
+				#{EMP_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test="RANK_TYPE != null">
+				#{RANK_TYPE,jdbcType=DECIMAL},
+			</if>
+			<if test="TITLE_WITHIN_THE_PROJECT != null">
+				#{TITLE_WITHIN_THE_PROJECT,jdbcType=VARCHAR},
+			</if>
+			<if test="PARENT != null">
+				#{PARENT,jdbcType=DECIMAL},
+			</if>
+			<if test="PROJECT != null">
+				#{PROJECT,jdbcType=DECIMAL},
+			</if>
+			<if test="CREATE_TIME != null">
+				#{CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="UPDATE_TIME != null">
+				#{UPDATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<insert id="saveDmProjectEmployeeStore" parameterType="pd">
+		INSERT INTO
+		DM_PROJECT_EMPLOYEE_STORE
+			(PROJEMP_ID,
+			PROJSTORE_ID)
+		VALUES
+			(#{PROJEMP_ID,jdbcType=DECIMAL},
+			#{PROJSTORE_ID,jdbcType=DECIMAL})
+	</insert>
+
+	<select id="getProjectSellinExecdateList" parameterType="pd" resultType="pd">
+		SELECT
+			ID,
+			PROJECT_SELLIN_INFO_ID,
+			HEADER_ID,
+			EXEC_DATE
+		FROM
+			DM_PROJECT_SELLIN_EXECDATE
+		WHERE
+			PROJECT_SELLIN_INFO_ID = #{PROJECT_SELLIN_INFO_ID}
+
+	</select>
+
+	<insert id="saveProjectSellinExecdate" parameterType="pd">
+		<selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+			select HIBERNATE_SEQUENCE.nextval as ID from dual
+		</selectKey>
+		INSERT INTO
+			DM_PROJECT_SELLIN_EXECDATE
+			(ID,
+			PROJECT_SELLIN_INFO_ID,
+			HEADER_ID,
+			EXEC_DATE)
+		VALUES
+			(#{ID,jdbcType=DECIMAL},#{PROJECT_SELLIN_INFO_ID,jdbcType=DECIMAL},#{HEADER_ID,jdbcType=DECIMAL},#{EXEC_DATE,jdbcType=TIMESTAMP})
+
+	</insert>
+
+	<select id="findProjectSellinInfoById" parameterType="pd" resultType="pd">
+		SELECT
+				ID,
+		PROJECT_ID,
+		CHANNEL_SYNC_ID,
+		SCHEDULE_NUM,
+		PLAN_START_TIME,
+		PLAN_FINISHED_TIME,
+		EMP_CODE,
+		STATUS,
+		EXEC_STATUS,
+		AUDIT_STATUS,
+		SCHEDULE_TYPE,
+		AUDI_USER_ID,
+		AUDI_DATE,
+		UPDATE_TIME,
+		CREATE_USER,
+		CREATE_TIME,
+		C1,
+		C2,
+		C3,
+		C4,
+		C5,
+		C6,
+		C7,
+		C8,
+		C9,
+		C10,
+		C11,
+		C12,
+		C13,
+		C14,
+		C15,
+		C16,
+		C17,
+		C18,
+		C19,
+		C20,
+		C21,
+		C22,
+		C23,
+		C24,
+		C25,
+		C26,
+		C27,
+		C28,
+		C29,
+		C30,
+		C31,
+		C32,
+		C33,
+		C34,
+		C35,
+		C36,
+		C37,
+		C38,
+		C39,
+		C40,
+		C41,
+		C42,
+		C43,
+		C44,
+		C45,
+		C46,
+		C47,
+		C48,
+		C49,
+		C50,
+		C51,
+		C52,
+		C53,
+		C54,
+		C55,
+		C56,
+		C57,
+		C58,
+		C59,
+		C60,
+		C61,
+		C62,
+		C63,
+		C64,
+		C65,
+		C66,
+		C67,
+		C68,
+		C69,
+		C70,
+		C71,
+		C72,
+		C73,
+		C74,
+		C75,
+		C76,
+		C77,
+		C78,
+		C79,
+		C80,
+		C81,
+		C82,
+		C83,
+		C84,
+		C85,
+		C86,
+		C87,
+		C88,
+		C89,
+		C90,
+		C91,
+		C92,
+		C93,
+		C94,
+		C95,
+		C96,
+		C97,
+		C98,
+		C99,
+		C100,
+		CITY_EMP_CODE,
+		UPDATE_USER,
+		PLAN_SALES_COUNT,
+		OLD_PLAN_START_TIME,
+		OLD_PLAN_FINISHED_TIME,
+		CUST_DEPUTY_NAME,
+		CUST_DEPUTY_PHONE,
+		CUST_DIRECTOR_NAME,
+		CUST_DIRECTOR_PHONE,
+		CUST_MANAGER_NAME,
+		CUST_MANAGER_PHONE,
+		SELLIN_CHANNEL,
+		CUST_CHANNEL,
+		CUST_SYS,
+		CUST_CHANNEL_CODE,
+		CUST_CHANNEL_NAME,
+		PLAN_EXEC_DATE_TIME,
+		PLAN_COM_EXEC_DATE_TIME,
+		PLAN_THREE_PAY_EXEC_DATE_TIME,
+		PLAN_EXEC_STORE_TIME,
+		PLAN_COM_EXEC_STORE_TIME,
+		PLAN_THREE_PAY_EXEC_STORE_TIME,
+		PLAN_EXHIBIT_TYPE,
+		PLAN_EXHIBIT_START_TIME,
+		PLAN_EXHIBIT_END_TIME,
+		PLAN_STORE_PATROL_COUNT,
+		PLAN_WEEK_STORE_PATROL_COUNT,
+		PLAN_MONTH_STORE_PATROL_COUNT,
+		TOTAL_SALES_TARGET,
+		DAILY_SOTRE_SALES_TARGET
+	FROM
+		DM_PROJECT_SELLIN_INFO
+	WHERE
+		ID = #{ID}
+	</select>
+
+	<update id="updateProjectSellinInfo" parameterType="pd">
+		update DM_PROJECT_SELLIN_INFO
+		<set>
+			<if test="PROJECT_ID != null">
+				PROJECT_ID = #{PROJECT_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="CHANNEL_SYNC_ID != null">
+				CHANNEL_SYNC_ID = #{CHANNEL_SYNC_ID,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_NUM != null">
+				SCHEDULE_NUM = #{SCHEDULE_NUM,jdbcType=DECIMAL},
+			</if>
+			<if test="PLAN_START_TIME != null">
+				PLAN_START_TIME = #{PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="PLAN_FINISHED_TIME != null">
+				PLAN_FINISHED_TIME = #{PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test="EMP_CODE != null">
+				EMP_CODE = #{EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test="STATUS != null">
+				STATUS = #{STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="EXEC_STATUS != null">
+				EXEC_STATUS = #{EXEC_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="AUDIT_STATUS != null">
+				AUDIT_STATUS = #{AUDIT_STATUS,jdbcType=DECIMAL},
+			</if>
+			<if test="SCHEDULE_TYPE != null">
+				SCHEDULE_TYPE = #{SCHEDULE_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test=" AUDI_USER_ID != null">
+				AUDI_USER_ID = #{ AUDI_USER_ID,jdbcType=DECIMAL},
+			</if>
+			<if test=" AUDI_DATE != null">
+				AUDI_DATE = #{ AUDI_DATE,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" UPDATE_TIME != null">
+				UPDATE_TIME = #{ UPDATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" CREATE_USER != null">
+				CREATE_USER = #{ CREATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test=" CREATE_TIME != null">
+				CREATE_TIME = #{ CREATE_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" C1 != null">
+				C1 = #{ C1,jdbcType=VARCHAR},
+			</if>
+			<if test="  C2 != null">
+				C2 = #{  C2,jdbcType=VARCHAR},
+			</if>
+			<if test="  C3 != null">
+				C3 = #{  C3,jdbcType=VARCHAR},
+			</if>
+			<if test="  C4 != null">
+				C4 = #{  C4,jdbcType=VARCHAR},
+			</if>
+			<if test="  C5 != null">
+				C5 = #{  C5,jdbcType=VARCHAR},
+			</if>
+			<if test="  C6 != null">
+				C6 = #{  C6,jdbcType=VARCHAR},
+			</if>
+			<if test=" C7 != null">
+				C7 = #{ C7,jdbcType=VARCHAR},
+			</if>
+			<if test=" C8 != null">
+				C8 = #{ C8,jdbcType=VARCHAR},
+			</if>
+			<if test=" C9 != null">
+				C9 = #{ C9,jdbcType=VARCHAR},
+			</if>
+			<if test=" C10 != null">
+				C10 = #{ C10,jdbcType=VARCHAR},
+			</if>
+			<if test=" C11 != null">
+				C11 = #{ C11,jdbcType=VARCHAR},
+			</if>
+			<if test=" C12 != null">
+				C12 = #{ C12,jdbcType=VARCHAR},
+			</if>
+			<if test=" C13 != null">
+				C13 = #{ C13,jdbcType=VARCHAR},
+			</if>
+			<if test=" C14 != null">
+				C14 = #{ C14,jdbcType=VARCHAR},
+			</if>
+			<if test=" C15 != null">
+				C15 = #{ C15,jdbcType=VARCHAR},
+			</if>
+			<if test=" C16 != null">
+				C16 = #{ C16,jdbcType=VARCHAR},
+			</if>
+			<if test=" C17 != null">
+				C17 = #{ C17,jdbcType=VARCHAR},
+			</if>
+			<if test=" C18 != null">
+				C18 = #{ C18,jdbcType=VARCHAR},
+			</if>
+			<if test=" C19 != null">
+				C19 = #{ C19,jdbcType=VARCHAR},
+			</if>
+			<if test=" C20 != null">
+				C20 = #{ C20,jdbcType=VARCHAR},
+			</if>
+			<if test=" C21 != null">
+				C21 = #{ C21,jdbcType=VARCHAR},
+			</if>
+			<if test=" C22 != null">
+				C22 = #{ C22,jdbcType=VARCHAR},
+			</if>
+			<if test=" C23 != null">
+				C23 = #{ C23,jdbcType=VARCHAR},
+			</if>
+			<if test=" C24 != null">
+				C24 = #{ C24,jdbcType=VARCHAR},
+			</if>
+			<if test=" C25 != null">
+				C25 = #{ C25,jdbcType=VARCHAR},
+			</if>
+			<if test=" C26 != null">
+				C26 = #{ C26,jdbcType=VARCHAR},
+			</if>
+			<if test=" C27 != null">
+				C27 = #{ C27,jdbcType=VARCHAR},
+			</if>
+			<if test=" C28 != null">
+				C28 = #{ C28,jdbcType=VARCHAR},
+			</if>
+			<if test=" C29 != null">
+				C29 = #{ C29,jdbcType=VARCHAR},
+			</if>
+			<if test=" C30 != null">
+				C30 = #{ C30,jdbcType=VARCHAR},
+			</if>
+			<if test=" C31 != null">
+				C31 = #{ C31,jdbcType=VARCHAR},
+			</if>
+			<if test=" C32 != null">
+				C32 = #{ C32,jdbcType=VARCHAR},
+			</if>
+			<if test=" C33 != null">
+				C33 = #{ C33,jdbcType=VARCHAR},
+			</if>
+			<if test=" C34 != null">
+				C34 = #{ C34,jdbcType=VARCHAR},
+			</if>
+			<if test=" C35 != null">
+				C35 = #{ C35,jdbcType=VARCHAR},
+			</if>
+			<if test=" C36 != null">
+				C36 = #{ C36,jdbcType=VARCHAR},
+			</if>
+			<if test=" C37 != null">
+				C37 = #{ C37,jdbcType=VARCHAR},
+			</if>
+			<if test=" C38 != null">
+				C38 = #{ C38,jdbcType=VARCHAR},
+			</if>
+			<if test=" C39 != null">
+				C39 = #{ C39,jdbcType=VARCHAR},
+			</if>
+			<if test=" C40 != null">
+				C40 = #{ C40,jdbcType=VARCHAR},
+			</if>
+			<if test=" C41 != null">
+				C41 = #{ C41,jdbcType=VARCHAR},
+			</if>
+			<if test=" C42 != null">
+				C42 = #{ C42,jdbcType=VARCHAR},
+			</if>
+			<if test=" C43 != null">
+				C43 = #{ C43,jdbcType=VARCHAR},
+			</if>
+			<if test=" C44 != null">
+				C44 = #{ C44,jdbcType=VARCHAR},
+			</if>
+			<if test=" C45 != null">
+				C45 = #{ C45,jdbcType=VARCHAR},
+			</if>
+			<if test=" C46 != null">
+				C46 = #{ C46,jdbcType=VARCHAR},
+			</if>
+			<if test=" C47 != null">
+				C47 = #{ C47,jdbcType=VARCHAR},
+			</if>
+			<if test=" C48 != null">
+				C48 = #{ C48,jdbcType=VARCHAR},
+			</if>
+			<if test=" C49 != null">
+				C49 = #{ C49,jdbcType=VARCHAR},
+			</if>
+			<if test=" C50 != null">
+				C50 = #{ C50,jdbcType=VARCHAR},
+			</if>
+			<if test=" C51 != null">
+				C51 = #{ C51,jdbcType=VARCHAR},
+			</if>
+			<if test=" C52 != null">
+				C52 = #{ C52,jdbcType=VARCHAR},
+			</if>
+			<if test=" C53 != null">
+				C53 = #{ C53,jdbcType=VARCHAR},
+			</if>
+			<if test=" C54 != null">
+				C54 = #{ C54,jdbcType=VARCHAR},
+			</if>
+			<if test=" C55 != null">
+				C55 = #{ C55,jdbcType=VARCHAR},
+			</if>
+			<if test=" C56 != null">
+				C56 = #{ C56,jdbcType=VARCHAR},
+			</if>
+			<if test=" C57 != null">
+				C57 = #{ C57,jdbcType=VARCHAR},
+			</if>
+			<if test=" C58 != null">
+				C58 = #{ C58,jdbcType=VARCHAR},
+			</if>
+			<if test=" C59 != null">
+				C59 = #{ C59,jdbcType=VARCHAR},
+			</if>
+			<if test=" C60 != null">
+				C60 = #{ C60,jdbcType=VARCHAR},
+			</if>
+			<if test=" C61 != null">
+				C61 = #{ C61,jdbcType=VARCHAR},
+			</if>
+			<if test=" C62 != null">
+				C62 = #{ C62,jdbcType=VARCHAR},
+			</if>
+			<if test=" C63 != null">
+				C63 = #{ C63,jdbcType=VARCHAR},
+			</if>
+			<if test=" C64 != null">
+				C64 = #{ C64,jdbcType=VARCHAR},
+			</if>
+			<if test=" C65 != null">
+				C65 = #{ C65,jdbcType=VARCHAR},
+			</if>
+			<if test=" C66 != null">
+				C66 = #{ C66,jdbcType=VARCHAR},
+			</if>
+			<if test=" C67 != null">
+				C67 = #{ C67,jdbcType=VARCHAR},
+			</if>
+			<if test=" C68 != null">
+				C68 = #{ C68,jdbcType=VARCHAR},
+			</if>
+			<if test=" C69 != null">
+				C69 = #{ C69,jdbcType=VARCHAR},
+			</if>
+			<if test=" C70 != null">
+				C70 = #{ C70,jdbcType=VARCHAR},
+			</if>
+			<if test=" C71 != null">
+				C71 = #{ C71,jdbcType=VARCHAR},
+			</if>
+			<if test=" C72 != null">
+				C72 = #{ C72,jdbcType=VARCHAR},
+			</if>
+			<if test=" C73 != null">
+				C73 = #{ C73,jdbcType=VARCHAR},
+			</if>
+			<if test=" C74 != null">
+				C74 = #{ C74,jdbcType=VARCHAR},
+			</if>
+			<if test=" C75 != null">
+				C75 = #{ C75,jdbcType=VARCHAR},
+			</if>
+			<if test=" C76 != null">
+				C76 = #{ C76,jdbcType=VARCHAR},
+			</if>
+			<if test=" C77 != null">
+				C77 = #{ C77,jdbcType=VARCHAR},
+			</if>
+			<if test=" C78 != null">
+				C78 = #{ C78,jdbcType=VARCHAR},
+			</if>
+			<if test=" C79 != null">
+				C79 = #{ C79,jdbcType=VARCHAR},
+			</if>
+			<if test=" C80 != null">
+				C80 = #{ C80,jdbcType=VARCHAR},
+			</if>
+			<if test=" C81 != null">
+				C81 = #{ C81,jdbcType=VARCHAR},
+			</if>
+			<if test=" C82 != null">
+				C82 = #{ C82,jdbcType=VARCHAR},
+			</if>
+			<if test=" C83 != null">
+				C83 = #{ C83,jdbcType=VARCHAR},
+			</if>
+			<if test=" C84 != null">
+				C84 = #{ C84,jdbcType=VARCHAR},
+			</if>
+			<if test=" C85 != null">
+				C85 = #{ C85,jdbcType=VARCHAR},
+			</if>
+			<if test=" C86 != null">
+				C86 = #{ C86,jdbcType=VARCHAR},
+			</if>
+			<if test=" C87 != null">
+				C87 = #{ C87,jdbcType=VARCHAR},
+			</if>
+			<if test=" C88 != null">
+				C88 = #{ C88,jdbcType=VARCHAR},
+			</if>
+			<if test=" C89 != null">
+				C89 = #{ C89,jdbcType=VARCHAR},
+			</if>
+			<if test=" C90 != null">
+				C90 = #{ C90,jdbcType=VARCHAR},
+			</if>
+			<if test=" C91 != null">
+				C91 = #{ C91,jdbcType=VARCHAR},
+			</if>
+			<if test=" C92 != null">
+				C92 = #{ C92,jdbcType=VARCHAR},
+			</if>
+			<if test=" C93 != null">
+				C93 = #{ C93,jdbcType=VARCHAR},
+			</if>
+			<if test=" C94 != null">
+				C94 = #{ C94,jdbcType=VARCHAR},
+			</if>
+			<if test=" C95 != null">
+				C95 = #{ C95,jdbcType=VARCHAR},
+			</if>
+			<if test=" C96 != null">
+				C96 = #{ C96,jdbcType=VARCHAR},
+			</if>
+			<if test=" C97 != null">
+				C97 = #{ C97,jdbcType=VARCHAR},
+			</if>
+			<if test=" C98 != null">
+				C98 = #{ C98,jdbcType=VARCHAR},
+			</if>
+			<if test=" C99 != null">
+				C99 = #{ C99,jdbcType=VARCHAR},
+			</if>
+			<if test=" C100 != null">
+				C100 = #{ C100,jdbcType=VARCHAR},
+			</if>
+			<if test=" CITY_EMP_CODE != null">
+				CITY_EMP_CODE = #{ CITY_EMP_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test=" UPDATE_USER != null">
+				UPDATE_USER = #{ UPDATE_USER,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_SALES_COUNT != null">
+				PLAN_SALES_COUNT = #{ PLAN_SALES_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test=" OLD_PLAN_START_TIME != null">
+				OLD_PLAN_START_TIME = #{ OLD_PLAN_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" OLD_PLAN_FINISHED_TIME != null">
+				OLD_PLAN_FINISHED_TIME = #{ OLD_PLAN_FINISHED_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" CUST_DEPUTY_NAME != null">
+				CUST_DEPUTY_NAME = #{ CUST_DEPUTY_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_DEPUTY_PHONE != null">
+				CUST_DEPUTY_PHONE = #{ CUST_DEPUTY_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_DIRECTOR_NAME != null">
+				CUST_DIRECTOR_NAME = #{ CUST_DIRECTOR_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_DIRECTOR_PHONE != null">
+				CUST_DIRECTOR_PHONE = #{ CUST_DIRECTOR_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_MANAGER_NAME != null">
+				CUST_MANAGER_NAME = #{ CUST_MANAGER_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_MANAGER_PHONE != null">
+				CUST_MANAGER_PHONE = #{ CUST_MANAGER_PHONE,jdbcType=VARCHAR},
+			</if>
+			<if test=" SELLIN_CHANNEL != null">
+				SELLIN_CHANNEL = #{ SELLIN_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_CHANNEL != null">
+				CUST_CHANNEL = #{ CUST_CHANNEL,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_SYS != null">
+				CUST_SYS = #{ CUST_SYS,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_CHANNEL_CODE != null">
+				CUST_CHANNEL_CODE = #{ CUST_CHANNEL_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test=" CUST_CHANNEL_NAME != null">
+				CUST_CHANNEL_NAME = #{ CUST_CHANNEL_NAME,jdbcType=VARCHAR},
+			</if>
+			<if test=" PLAN_EXEC_DATE_TIME != null">
+				PLAN_EXEC_DATE_TIME = #{ PLAN_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_COM_EXEC_DATE_TIME != null">
+				PLAN_COM_EXEC_DATE_TIME = #{ PLAN_COM_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_THREE_PAY_EXEC_DATE_TIME != null">
+				PLAN_THREE_PAY_EXEC_DATE_TIME = #{ PLAN_THREE_PAY_EXEC_DATE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_EXEC_STORE_TIME != null">
+				PLAN_EXEC_STORE_TIME = #{ PLAN_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_COM_EXEC_STORE_TIME != null">
+				PLAN_COM_EXEC_STORE_TIME = #{ PLAN_COM_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_THREE_PAY_EXEC_STORE_TIME != null">
+				PLAN_THREE_PAY_EXEC_STORE_TIME = #{ PLAN_THREE_PAY_EXEC_STORE_TIME,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_EXHIBIT_TYPE != null">
+				PLAN_EXHIBIT_TYPE = #{ PLAN_EXHIBIT_TYPE,jdbcType=VARCHAR},
+			</if>
+			<if test=" PLAN_EXHIBIT_START_TIME != null">
+				PLAN_EXHIBIT_START_TIME = #{ PLAN_EXHIBIT_START_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" PLAN_EXHIBIT_END_TIME != null">
+				PLAN_EXHIBIT_END_TIME = #{ PLAN_EXHIBIT_END_TIME,jdbcType=TIMESTAMP},
+			</if>
+			<if test=" PLAN_STORE_PATROL_COUNT != null">
+				PLAN_STORE_PATROL_COUNT = #{ PLAN_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_WEEK_STORE_PATROL_COUNT != null">
+				PLAN_WEEK_STORE_PATROL_COUNT = #{ PLAN_WEEK_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test=" PLAN_MONTH_STORE_PATROL_COUNT != null">
+				PLAN_MONTH_STORE_PATROL_COUNT = #{ PLAN_MONTH_STORE_PATROL_COUNT,jdbcType=DECIMAL},
+			</if>
+			<if test=" TOTAL_SALES_TARGET != null">
+				TOTAL_SALES_TARGET = #{ TOTAL_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test=" DAILY_SOTRE_SALES_TARGET != null">
+				DAILY_SOTRE_SALES_TARGET = #{ DAILY_SOTRE_SALES_TARGET,jdbcType=DECIMAL},
+			</if>
+			<if test=" AREA_MANAGER_CODE != null">
+				AREA_MANAGER_CODE = #{ AREA_MANAGER_CODE,jdbcType=VARCHAR},
+			</if>
+			<if test=" PLAN_EXHIBIT_NUM != null">
+				PLAN_EXHIBIT_NUM = #{ PLAN_EXHIBIT_NUM,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE
+		ID = #{ID,jdbcType=DECIMAL}
+	</update>
+
+	<delete id="ProjectSellinStoreOpenRemove" parameterType="pd">
+		delete from
+			DM_PROJECT_SELLIN_STORE_OPEN
+		WHERE
+		 	PROJECT_SELLIN_INFO_ID = #{ID}
+		AND
+			AUDI_STATUS = 0
+	</delete>
+
+	<select id="getProjectSellinExecdateListByInfoExec" parameterType="pd" resultType="pd">
+		SELECT
+			ID,
+			PROJECT_SELLIN_INFO_ID,
+			HEADER_ID,
+			EXEC_DATE
+		FROM
+			DM_PROJECT_SELLIN_EXECDATE
+		WHERE
+			PROJECT_SELLIN_INFO_ID = #{PROJECT_SELLIN_INFO_ID}
+		ORDER BY EXEC_DATE
+
+	</select>
+
+	<select id="findDmUserByEmppk" parameterType="pd" resultType="pd">
+		SELECT ID,
+		  DISPLAY_NAME,
+		  EMP_PK,
+		  EMP_NAME,
+		  ORG_CODE,
+		  EMP_ORG_TITLE,
+		  LOGIN_NAME,
+		  PASSWORD,
+		  STATUS,
+		  PERMISSION_ROLE,
+		  DISABLE_IMEI_VALIDATE,
+		  IMEI,
+		  OFA_CREATED_AT,
+		  LAST_LATITUDE,
+		  LAST_LONGITUDE,
+		  LAST_UPDATED_AT,
+		  LAST_UPDATED_ON,
+		  ORG_TYPE,
+		  PASSWORD_UPDATE_TIME
+		FROM
+		  DM_USER
+		WHERE
+		  EMP_PK = #{EMP_PK}
+	</select>
+	<select id="getSalesScheduleCalendarByProjectId" parameterType="pd" resultType="pd">
+		SELECT COUNT(*) num FROM dm_sales_schedule_calendar ssc
+		  INNER JOIN dm_project_sellin_sales pss ON ssc.Sales_Id=pss.id
+		  INNER JOIN dm_project_sellin_info psi ON psi.id=pss.project_sellin_info_id
+		  WHERE 1=1
+		  AND psi.id= #{ID}
+	</select>
+</mapper>

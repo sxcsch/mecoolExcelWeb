@@ -1,0 +1,31 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /mecool
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 50
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:oracle:thin:@180.167.231.26:41522/mcdb
+    username: swmpuser
+    password: mecoolsuccessful
+    driverClassName: oracle.jdbc.driver.OracleDriver
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 20000
+#  jpa:
+#    database: MYSQL
+#    showSql: true
+#    hibernate:
+#      namingStrategy: org.hibernate.cfg.ImprovedNamingStrategy
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+mybatis:
+  configuration:
+    #配置项：开启下划线到驼峰的自动转换. 作用：将数据库字段根据驼峰规则自动注入到对象属性。
+    map-underscore-to-camel-case: true

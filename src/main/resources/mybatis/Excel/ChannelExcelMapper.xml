@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChannelExcelMapper">
+
+    <select id="getChannelList" parameterType="pd" resultType="pd">
+        SELECT
+                    sync.ID,
+        sync.CHANNEL_AD_CODE,
+        sync.CHANNEL_AD_NAME,
+        sync.CHANNEL_ADDRESS,
+        sync.CHANNEL_ADMIN_DIV_ID,
+        sync.CHANNEL_CAT_CODE,
+        sync.CHANNEL_CITY_AD_CODE,
+        sync.CHANNEL_CITY_AD_NAME,
+        sync.CHANNEL_CODE,
+        sync.CHANNEL_NAME,
+        sync.CHANNEL_PROVINCE_AD_CODE,
+        sync.CHANNEL_PROVINCE_AD_NAME,
+        sync.CHANNEL_SYS_CAT,
+        sync.TYPE,
+        sync.LATITUDE,
+        sync.LONGITUDE,
+        sync.INDEX_CODE
+        FROM
+          DM_CHANNEL_SYNC sync
+        inner join md_pos pos on
+          pos.POS_CODE = sync.CHANNEL_CODE
+        and
+          pos.IS_DEL = 0
+        WHERE
+          sync.CHANNEL_CODE = #{CHANNEL_CODE}
+    </select>
+
+    <select id="getChannelById" parameterType="pd" resultType="pd">
+SELECT
+                    sync.ID,
+        sync.CHANNEL_AD_CODE,
+        sync.CHANNEL_AD_NAME,
+        sync.CHANNEL_ADDRESS,
+        sync.CHANNEL_ADMIN_DIV_ID,
+        sync.CHANNEL_CAT_CODE,
+        sync.CHANNEL_CITY_AD_CODE,
+        sync.CHANNEL_CITY_AD_NAME,
+        sync.CHANNEL_CODE,
+        sync.CHANNEL_NAME,
+        sync.CHANNEL_PROVINCE_AD_CODE,
+        sync.CHANNEL_PROVINCE_AD_NAME,
+        sync.CHANNEL_SYS_CAT,
+        sync.TYPE,
+        sync.LATITUDE,
+        sync.LONGITUDE,
+        sync.INDEX_CODE
+        FROM
+          DM_CHANNEL_SYNC sync
+        inner join md_pos pos on
+          pos.POS_CODE = sync.CHANNEL_CODE
+        and
+          pos.IS_DEL = 0
+        WHERE
+          sync.ID = #{CHANNEL_SYNC_ID}
+    </select>
+
+    <select id="getOnUsePosCountByCode" parameterType="pd" resultType="pd">
+        select count(1) num from md_pos ps where 1=1 and ps.is_del=0 and ps.pos_code=#{POS_CODE}
+    </select>
+
+    <select id="getProjectSellinStoreOpenList" resultType="pd" parameterType="pd">
+        SELECT
+            ID,
+            PROJECT_SELLIN_INFO_ID,
+            SO_UPDATE_USER,
+            SO_UPDATE_TIME,
+            SO_CREATE_USER,
+            SO_CREATE_TIME,
+            SO_STATUS,
+            SO_PLAN_OPEN_TIME,
+            SO_PLAN_FINISH_TIME,
+            SO_OPEN_TIME,
+            SO_OPEN_TYPE,
+            SO_EXHIBIT_TYPE,
+            SO_ENTER_TIME,
+            SO_LEAVE_TIME,
+            SO_PATROL_TIME,
+            SO_PATROL_POSITION_STATUS,
+            SO_EXHIBIT_PHOTOS,
+            SO_SALES_PHOTOS,
+            SO_EXEC_EMP_CODE,
+            SO_SPECIAL_SITUATION,
+            SO_UPLOAD_TIME,
+            SO1,
+            SO2,
+            SO3,
+            SO4,
+            SO5,
+            SO6,
+            SO7,
+            SO8,
+            SO9,
+            SO10,
+            SO_REPORT_TYPE,
+            SO_REPORT_USER,
+            AUDI_STATUS,
+            AUDI_OPINION,
+            AUDI_USER,
+            AUDI_TIME,
+            SO_SALES_EXHIBIT_TYPE,
+            SO_SALES_EXHIBIT_PHOTOS,
+            SO_SALES_OPEN_PHOTOS,
+            SO_SALES_ACTION_PHOTOS,
+            SO_SALES_COMPET_PHOTOS,
+            SO_SALES_OPEN_CODE,
+            SO_SALES_REPORT_TIME,
+            SO_SALES_QUESTION_FEEDBACK
+        FROM
+            DM_PROJECT_SELLIN_STORE_OPEN
+        WHERE
+            PROJECT_SELLIN_INFO_ID = #{ID}
+    </select>
+
+
+
+</mapper>

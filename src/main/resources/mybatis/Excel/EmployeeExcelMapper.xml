@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EmployeeExcelMapper">
+
+    <select id="findProjectEmployeeByProject" resultType="pd" parameterType="pd">
+        SELECT
+             ID,
+            EMP_ID,
+            EMP_NAME,
+            RANK_TYPE,
+            TITLE_WITHIN_THE_PROJECT,
+            PARENT,
+            PROJECT,
+            CREATE_TIME,
+            UPDATE_TIME
+          FROM
+            DM_PROJECT_EMPLOYEE
+          WHERE
+            PROJECT = #{PROJECT_ID}
+
+    </select>
+
+</mapper>

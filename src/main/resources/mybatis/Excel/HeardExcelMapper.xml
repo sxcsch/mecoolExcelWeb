@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="HeardExcelMapper">
+    <select id="setJobStepByProcedure" parameterType="pd" statementType="CALLABLE">
+        {
+        call P_INITIALIZATION_HEADER_JOB(#{PROJECT_ID,jdbcType=NUMERIC})
+        }
+    </select>
+
+    <select id="findInfoHeaderByProjectIdOrderByColumnOrder" parameterType="pd" resultType="pd">
+        select
+            ID,
+            PROJECT_ID,
+            HEADER_NAME,
+            SELLIN_C_NAME,
+            COLUMN_ORDER,
+            IS_MODIFY,
+            SOURCE_TYPE,
+            FIX_VALUE,
+            COM_TYPE,
+            COM_VALUE,
+            HEADER_FLAG,
+            IS_SHOW,
+            IS_OPEN_CUSTOMER,
+            IS_SETTING,
+            IS_INTEGRATED_SHOW,
+            STEP_OPTION_TYPE,
+            IS_SHOW_PHONE
+        from
+            DM_PROJECT_SELLIN_HEADER
+        WHERE
+            PROJECT_ID = #{PROJECT_ID}
+        and
+            HEADER_FLAG = #{HEADER_FLAG}
+        ORDER BY
+            COLUMN_ORDER
+
+    </select>
+
+    <select id="getExcelHeardCountById" parameterType="pd" resultType="pd">
+        select
+            count(ID) num
+        from
+            DM_PROJECT_SELLIN_HEADER
+        WHERE
+            PROJECT_ID = #{PROJECT_ID}
+
+    </select>
+
+    <select id="getExcelHeardSellinInfoCountById" parameterType="pd" resultType="pd">
+        select
+            count(ID) num
+        from
+            DM_PROJECT_SELLIN_INFO
+        WHERE
+            PROJECT_ID = #{PROJECT_ID}
+
+    </select>
+
+    <insert id="saveHeader" parameterType="pd">
+        <selectKey keyProperty="ID" resultType="java.lang.Long" order="BEFORE">
+            select HIBERNATE_SEQUENCE.nextval as ID from dual
+        </selectKey>
+        insert into DM_PROJECT_SELLIN_HEADER
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                ID,
+            </if>
+            <if test="PROJECT_ID != null" >
+                PROJECT_ID,
+            </if>
+            <if test="HEADER_NAME != null" >
+                HEADER_NAME,
+            </if>
+            <if test="SELLIN_C_NAME != null" >
+                SELLIN_C_NAME,
+            </if>
+            <if test="COLUMN_ORDER != null" >
+                COLUMN_ORDER,
+            </if>
+            <if test="IS_MODIFY != null" >
+                IS_MODIFY,
+            </if>
+            <if test="SOURCE_TYPE != null" >
+                SOURCE_TYPE,
+            </if>
+            <if test="FIX_VALUE != null" >
+                FIX_VALUE,
+            </if>
+            <if test="COM_TYPE != null" >
+                COM_TYPE,
+            </if>
+            <if test="COM_VALUE != null" >
+                COM_VALUE,
+            </if>
+            <if test="HEADER_FLAG != null" >
+                HEADER_FLAG,
+            </if>
+            <if test="IS_SHOW != null" >
+                IS_SHOW,
+            </if>
+            <if test="IS_OPEN_CUSTOMER != null" >
+                IS_OPEN_CUSTOMER,
+            </if>
+            <if test="IS_SETTING != null" >
+                IS_SETTING,
+            </if>
+            <if test="IS_INTEGRATED_SHOW != null" >
+                IS_INTEGRATED_SHOW,
+            </if>
+            <if test="STEP_OPTION_TYPE != null" >
+                STEP_OPTION_TYPE,
+            </if>
+            <if test="IS_SHOW_PHONE != null" >
+                IS_SHOW_PHONE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="ID != null" >
+                #{ID,jdbcType=DECIMAL},
+            </if>
+            <if test="PROJECT_ID != null" >
+                #{PROJECT_ID,jdbcType=DECIMAL},
+            </if>
+            <if test="HEADER_NAME != null" >
+                #{HEADER_NAME,jdbcType=VARCHAR},
+            </if>
+            <if test="SELLIN_C_NAME != null" >
+                #{SELLIN_C_NAME,jdbcType=VARCHAR},
+            </if>
+            <if test="COLUMN_ORDER != null" >
+                #{COLUMN_ORDER,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_MODIFY != null" >
+                #{IS_MODIFY,jdbcType=DECIMAL},
+            </if>
+            <if test="SOURCE_TYPE != null" >
+                #{SOURCE_TYPE,jdbcType=CHAR},
+            </if>
+            <if test="FIX_VALUE != null" >
+                #{FIX_VALUE,jdbcType=VARCHAR},
+            </if>
+            <if test="COM_TYPE != null" >
+                #{COM_TYPE,jdbcType=VARCHAR},
+            </if>
+            <if test="COM_VALUE != null" >
+                #{COM_VALUE,jdbcType=VARCHAR},
+            </if>
+            <if test="HEADER_FLAG != null" >
+                #{HEADER_FLAG,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_SHOW != null" >
+                #{IS_SHOW,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_OPEN_CUSTOMER != null" >
+                #{IS_OPEN_CUSTOMER,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_SETTING != null" >
+                #{IS_SETTING,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_INTEGRATED_SHOW != null" >
+                #{IS_INTEGRATED_SHOW,jdbcType=DECIMAL},
+            </if>
+            <if test="STEP_OPTION_TYPE != null" >
+                #{STEP_OPTION_TYPE,jdbcType=DECIMAL},
+            </if>
+            <if test="IS_SHOW_PHONE != null" >
+                #{IS_SHOW_PHONE,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="findHeaderById" parameterType="pd" resultType="pd">
+        SELECT
+            ID,
+            PROJECT_ID,
+            HEADER_NAME,
+            SELLIN_C_NAME,
+            COLUMN_ORDER,
+            IS_MODIFY,
+            SOURCE_TYPE,
+            FIX_VALUE,
+            COM_TYPE,
+            COM_VALUE,
+            HEADER_FLAG,
+            IS_SHOW,
+            IS_OPEN_CUSTOMER,
+            IS_SETTING,
+            IS_INTEGRATED_SHOW,
+            STEP_OPTION_TYPE,
+            IS_SHOW_PHONE
+        FROM
+            DM_PROJECT_SELLIN_HEADER
+        WHERE
+            ID = #{ID}
+    </select>
+
+    <delete id="deleteByProject" parameterType="pd">
+      DELETE FROM
+        DM_PROJECT_SELLIN_HEADER
+      WHERE
+        PROJECT_ID = #{PROJECT_ID}
+    </delete>
+
+</mapper>
